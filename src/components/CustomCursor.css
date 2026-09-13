@@ -1,0 +1,117 @@
+/* ===================================================================
+   CUSTOM CURSOR & AMBIENT GLOW SYSTEM — GPU ACCELERATED (60+ FPS)
+   =================================================================== */
+
+.custom-cursor-container {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9999;
+  overflow: hidden;
+  contain: strict;
+  transition: opacity 0.25s ease;
+}
+
+.custom-cursor-container.hidden {
+  opacity: 0;
+}
+
+.custom-cursor-container.visible {
+  opacity: 1;
+}
+
+/* ===================================================================
+   POSITION TRACKERS: GPU translate3d only — ZERO CSS TRANSITION ON POSITION!
+   =================================================================== */
+
+.cursor-glow-orb,
+.cursor-trail-ring,
+.cursor-center-dot {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  contain: strict;
+  will-change: transform;
+  transform: translate3d(-300px, -300px, 0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transition: none !important; /* CRITICAL: Prevent CSS transition lag on positional updates */
+}
+
+/* Ambient Soft Champagne Glow */
+.cursor-glow-inner {
+  width: 460px;
+  height: 460px;
+  margin: -230px 0 0 -230px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(197, 160, 89, 0.08) 0%,
+    rgba(197, 160, 89, 0.02) 40%,
+    transparent 70%
+  );
+  transition: background 0.3s ease, opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.active-interactive .cursor-glow-inner {
+  background: radial-gradient(
+    circle,
+    rgba(197, 160, 89, 0.13) 0%,
+    rgba(197, 160, 89, 0.04) 42%,
+    transparent 70%
+  );
+}
+
+/* Trailing Ring (Inner element handles hover scaling & borders) */
+.cursor-ring-inner {
+  width: 32px;
+  height: 32px;
+  margin: -16px 0 0 -16px;
+  border-radius: 50%;
+  border: 1px solid rgba(197, 160, 89, 0.42);
+  background: rgba(197, 160, 89, 0.02);
+  box-shadow: 0 0 12px rgba(197, 160, 89, 0.15);
+  pointer-events: none;
+  transform: scale(1);
+  transition: 
+    transform 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.22s ease,
+    background-color 0.22s ease,
+    box-shadow 0.22s ease;
+}
+
+.ring-expanded .cursor-ring-inner {
+  transform: scale(1.45);
+  border-color: rgba(223, 194, 136, 0.7);
+  background-color: rgba(197, 160, 89, 0.08);
+  box-shadow: 0 0 18px rgba(197, 160, 89, 0.32);
+}
+
+/* Center Anchor Dot: 1:1 instantaneous hardware-accelerated follow */
+.cursor-dot-inner {
+  width: 5px;
+  height: 5px;
+  margin: -2.5px 0 0 -2.5px;
+  border-radius: 50%;
+  background-color: var(--accent-gold);
+  box-shadow: 0 0 8px rgba(197, 160, 89, 0.75);
+  pointer-events: none;
+  transform: scale(1);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.dot-subtle .cursor-dot-inner {
+  opacity: 0.35;
+  transform: scale(0.7);
+}
+
+/* Mobile & Touch Overrides */
+@media (hover: none) or (pointer: coarse) {
+  .custom-cursor-container {
+    display: none !important;
+  }
+}

@@ -1,0 +1,608 @@
+/* ===================================================================
+   SERVICES SECTION — 2X2 GLASSMORPHISM DESIGN SYSTEM
+   =================================================================== */
+
+.services-section {
+  position: relative;
+  padding: 130px 0 100px;
+  background-color: var(--bg-dark);
+  contain: layout style;
+  z-index: 3;
+  overflow: hidden;
+}
+
+/* Atmospheric Ambient Lighting */
+.services-ambient-glow {
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  width: 1000px;
+  height: 600px;
+  background: radial-gradient(
+    ellipse,
+    rgba(197, 160, 89, 0.09) 0%,
+    rgba(37, 211, 102, 0.035) 45%,
+    transparent 70%
+  );
+  pointer-events: none;
+  contain: strict;
+  z-index: 0;
+}
+
+.services-radial-light {
+  position: absolute;
+  bottom: 15%;
+  left: 10%;
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(
+    circle,
+    rgba(0, 229, 255, 0.035) 0%,
+    transparent 65%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.services-container {
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 0 36px;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+/* Section Header */
+.services-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.services-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--accent-gold-light);
+  background: rgba(197, 160, 89, 0.08);
+  border: 1px solid rgba(197, 160, 89, 0.25);
+  padding: 6px 18px;
+  border-radius: 9999px;
+  margin-bottom: 22px;
+  box-shadow: 0 0 20px rgba(197, 160, 89, 0.1);
+}
+
+.eyebrow-pulse {
+  position: relative;
+  display: flex;
+  width: 7px;
+  height: 7px;
+}
+
+.pulse-ring {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: var(--accent-gold);
+  opacity: 0.75;
+  animation: servicesPing 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+.pulse-core {
+  position: relative;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: var(--accent-gold);
+}
+
+@keyframes servicesPing {
+  75%, 100% {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+}
+
+.eyebrow-sparkle {
+  color: var(--accent-gold);
+}
+
+/* Main Bilingual Heading */
+.services-main-headline {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 4.2vw, 3.8rem);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  line-height: 1.25;
+  color: var(--text-primary);
+  margin-bottom: 18px;
+  text-transform: uppercase;
+  text-shadow: 0 0 40px rgba(197, 160, 89, 0.12);
+}
+
+.services-separator {
+  color: rgba(197, 160, 89, 0.45);
+  font-weight: 300;
+  margin: 0 8px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* Flawless Devanagari Native Typography */
+.services-headline-nepali {
+  font-family: var(--font-devanagari);
+  font-weight: 750;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  line-height: 1.35;
+  display: inline-block;
+  vertical-align: middle;
+  padding: 4px 6px;
+  background: linear-gradient(135deg, #ffffff 0%, #f5e8d0 35%, #dfc288 70%, #f9a826 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 24px rgba(223, 194, 136, 0.35));
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "kern" 1, "liga" 1, "clig" 1, "calt" 1;
+  -webkit-font-smoothing: antialiased;
+}
+
+.services-subtitle {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  max-width: 820px;
+  margin: 0 auto;
+  opacity: 0.88;
+}
+
+/* ===================================================================
+   2X2 GLASSMORPHISM GRID LAYOUT
+   =================================================================== */
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  width: 100%;
+}
+
+/* Individual Glassmorphic Service Card */
+.service-glass-card {
+  position: relative;
+  background: rgba(14, 19, 25, 0.78);
+  backdrop-filter: blur(26px);
+  -webkit-backdrop-filter: blur(26px);
+  border: 1px solid rgba(197, 160, 89, 0.22);
+  border-radius: 24px;
+  padding: 42px 38px 34px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 28px;
+  box-shadow: 
+    0 25px 60px -15px rgba(0, 0, 0, 0.85),
+    0 0 0 1px rgba(255, 255, 255, 0.03) inset;
+  contain: layout style;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), 
+              border-color 0.35s ease, 
+              box-shadow 0.35s ease;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(24px);
+}
+
+/* Scroll Fade-in Animation */
+.services-section.is-in-view .service-glass-card {
+  animation: serviceCardFadeIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes serviceCardFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(24px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Hover Glowing Borders & Lift */
+.service-glass-card:hover {
+  transform: translateY(-6px) translateZ(0);
+  border-color: rgba(197, 160, 89, 0.55);
+  box-shadow: 
+    0 35px 85px -15px rgba(0, 0, 0, 0.95),
+    0 0 35px rgba(197, 160, 89, 0.16),
+    0 0 0 1px rgba(197, 160, 89, 0.28) inset;
+}
+
+/* Ambient Top Aura on Card */
+.card-ambient-aura {
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0.15;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.service-glass-card:hover .card-ambient-aura {
+  opacity: 0.35;
+  transform: scale(1.2);
+}
+
+/* Card Top Row */
+.service-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.service-icon-box {
+  width: 58px;
+  height: 58px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.35s ease;
+}
+
+.service-glass-card:hover .service-icon-box {
+  transform: scale(1.08);
+}
+
+.service-card-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.service-number {
+  font-family: var(--font-mono);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-dim);
+  opacity: 0.6;
+}
+
+.service-pill-tag {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 5px 12px;
+  border-radius: 9999px;
+  text-transform: uppercase;
+}
+
+/* Card Main Body */
+.service-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.service-card-title {
+  font-family: var(--font-display);
+  font-size: 1.42rem;
+  font-weight: 850;
+  color: var(--text-primary);
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+}
+
+.service-card-description {
+  font-family: var(--font-body);
+  font-size: 0.96rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  opacity: 0.9;
+}
+
+/* Bullet Deliverables */
+.service-deliverables-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 16px;
+  margin-top: 10px;
+  list-style: none;
+  padding: 0;
+}
+
+.deliverable-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.deliverable-check {
+  color: var(--accent-gold);
+  flex-shrink: 0;
+}
+
+/* Card Bottom */
+.service-card-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.card-action-hint {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--text-dim);
+}
+
+.card-accent-beam {
+  display: block;
+  width: 35%;
+  height: 2px;
+  border-radius: 2px;
+  transition: width 0.4s ease;
+}
+
+.service-glass-card:hover .card-accent-beam {
+  width: 100%;
+}
+
+/* ===================================================================
+   CARD ACCENT VARIATIONS
+   =================================================================== */
+
+/* Card 1: Gold */
+.service-glass-card.accent-gold .card-ambient-aura {
+  background: var(--accent-gold);
+}
+.service-glass-card.accent-gold .service-icon-box {
+  background: rgba(197, 160, 89, 0.12);
+  border: 1px solid rgba(197, 160, 89, 0.35);
+  color: var(--accent-gold-light);
+}
+.service-glass-card.accent-gold .service-pill-tag {
+  color: var(--accent-gold-light);
+  background: rgba(197, 160, 89, 0.09);
+  border: 1px solid rgba(197, 160, 89, 0.25);
+}
+.service-glass-card.accent-gold .card-accent-beam {
+  background: linear-gradient(90deg, var(--accent-gold), transparent);
+}
+
+/* Card 2: Coral / Sunset */
+.service-glass-card.accent-coral {
+  border-color: rgba(255, 99, 132, 0.2);
+}
+.service-glass-card.accent-coral:hover {
+  border-color: #ff6384;
+  box-shadow: 0 35px 85px -15px rgba(0, 0, 0, 0.95), 0 0 35px rgba(255, 99, 132, 0.18);
+}
+.service-glass-card.accent-coral .card-ambient-aura {
+  background: #ff6384;
+}
+.service-glass-card.accent-coral .service-icon-box {
+  background: rgba(255, 99, 132, 0.12);
+  border: 1px solid rgba(255, 99, 132, 0.35);
+  color: #ff6384;
+}
+.service-glass-card.accent-coral .service-pill-tag {
+  color: #ff859d;
+  background: rgba(255, 99, 132, 0.09);
+  border: 1px solid rgba(255, 99, 132, 0.25);
+}
+.service-glass-card.accent-coral .deliverable-check {
+  color: #ff859d;
+}
+.service-glass-card.accent-coral .card-accent-beam {
+  background: linear-gradient(90deg, #ff6384, transparent);
+}
+
+/* Card 3: Cyan */
+.service-glass-card.accent-cyan {
+  border-color: rgba(0, 229, 255, 0.2);
+}
+.service-glass-card.accent-cyan:hover {
+  border-color: #00e5ff;
+  box-shadow: 0 35px 85px -15px rgba(0, 0, 0, 0.95), 0 0 35px rgba(0, 229, 255, 0.18);
+}
+.service-glass-card.accent-cyan .card-ambient-aura {
+  background: #00e5ff;
+}
+.service-glass-card.accent-cyan .service-icon-box {
+  background: rgba(0, 229, 255, 0.12);
+  border: 1px solid rgba(0, 229, 255, 0.35);
+  color: #00e5ff;
+}
+.service-glass-card.accent-cyan .service-pill-tag {
+  color: #5cf2ff;
+  background: rgba(0, 229, 255, 0.09);
+  border: 1px solid rgba(0, 229, 255, 0.25);
+}
+.service-glass-card.accent-cyan .deliverable-check {
+  color: #00e5ff;
+}
+.service-glass-card.accent-cyan .card-accent-beam {
+  background: linear-gradient(90deg, #00e5ff, transparent);
+}
+
+/* Card 4: Emerald */
+.service-glass-card.accent-emerald {
+  border-color: rgba(37, 211, 102, 0.2);
+}
+.service-glass-card.accent-emerald:hover {
+  border-color: #25D366;
+  box-shadow: 0 35px 85px -15px rgba(0, 0, 0, 0.95), 0 0 35px rgba(37, 211, 102, 0.18);
+}
+.service-glass-card.accent-emerald .card-ambient-aura {
+  background: #25D366;
+}
+.service-glass-card.accent-emerald .service-icon-box {
+  background: rgba(37, 211, 102, 0.12);
+  border: 1px solid rgba(37, 211, 102, 0.35);
+  color: #25D366;
+}
+.service-glass-card.accent-emerald .service-pill-tag {
+  color: #55ef88;
+  background: rgba(37, 211, 102, 0.09);
+  border: 1px solid rgba(37, 211, 102, 0.25);
+}
+.service-glass-card.accent-emerald .deliverable-check {
+  color: #25D366;
+}
+.service-glass-card.accent-emerald .card-accent-beam {
+  background: linear-gradient(90deg, #25D366, transparent);
+}
+
+/* ===================================================================
+   BOTTOM GLOWING CALL-TO-ACTION SECTION
+   =================================================================== */
+
+.services-cta-wrapper {
+  width: 100%;
+  margin-top: 15px;
+}
+
+.services-cta-card {
+  width: 100%;
+  background: rgba(14, 19, 25, 0.85);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(197, 160, 89, 0.3);
+  border-radius: 22px;
+  padding: 34px 44px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  box-shadow: 
+    0 25px 60px -15px rgba(0, 0, 0, 0.9),
+    0 0 35px -5px rgba(197, 160, 89, 0.12),
+    0 0 0 1px rgba(255, 255, 255, 0.04) inset;
+  transition: all 0.35s ease;
+}
+
+.services-cta-card:hover {
+  border-color: var(--accent-gold);
+  box-shadow: 
+    0 30px 75px -15px rgba(0, 0, 0, 0.95),
+    0 0 45px rgba(197, 160, 89, 0.2),
+    0 0 0 1px rgba(197, 160, 89, 0.35) inset;
+}
+
+.cta-text-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.cta-eyebrow {
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--accent-gold-light);
+  text-transform: uppercase;
+}
+
+.cta-headline {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.015em;
+}
+
+.cta-rate-notice {
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+}
+
+.cta-rate-notice strong {
+  color: var(--accent-gold-light);
+  font-weight: 700;
+}
+
+.services-start-btn {
+  padding: 16px 32px;
+  border-radius: 9999px;
+  font-size: 0.92rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  box-shadow: 0 10px 30px -5px rgba(197, 160, 89, 0.45);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.services-start-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 45px -5px rgba(197, 160, 89, 0.7);
+}
+
+.services-start-btn .btn-arrow {
+  transition: transform var(--transition-fast);
+}
+
+.services-start-btn:hover .btn-arrow {
+  transform: translateX(3px);
+}
+
+/* Responsive Styles */
+@media (max-width: 980px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .services-cta-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 30px 24px;
+    gap: 22px;
+  }
+
+  .service-deliverables-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .services-section {
+    padding: 90px 0 70px;
+  }
+
+  .service-glass-card {
+    padding: 30px 24px 26px;
+    border-radius: 18px;
+  }
+}

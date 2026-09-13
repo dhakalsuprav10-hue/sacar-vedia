@@ -1,0 +1,73 @@
+/**
+ * Commercial Projects Data Configuration
+ * Centralized, reusable data structure for Sacar Vedia Company's commercial portfolio.
+ * Video files are served from /public/videos/
+ * Posters are genuine default video frames extracted from /public/videos/posters/
+ */
+
+export const COMMERCIAL_PROJECTS = [
+  {
+    id: 'commercial-01',
+    number: '01',
+    title: 'Hello Smart — Lighting Solutions',
+    client: 'Hello Smart Trade Pvt. Ltd.',
+    category: 'AI COMMERCIAL',
+    year: '2026',
+    aspectRatio: '16/9',
+    aspectRatioLabel: '16:9 CINEMA (1920 × 1080)',
+    resolution: '1920 × 1080',
+    duration: '00:15',
+    description: 'Commercial advertisement created for Hello Smart Trade Pvt. Ltd. showcasing architectural smart lighting, decorative crystal chandeliers, outdoor garden lanterns, and commercial electrical solutions across Nepal.',
+    videoSrc: '/videos/commercial-01.mp4',
+    poster: '/videos/posters/commercial-01.jpg',
+    tags: ['Brand Commercial', 'Lighting Solutions', 'Nepali Voiceover', '4K Cinema'],
+  },
+  {
+    id: 'commercial-02',
+    number: '02',
+    title: 'Sahayatri Auto Care — Workshop Campaign',
+    client: 'Sahayatri Auto Care (Bhaktapur)',
+    category: 'AI COMMERCIAL',
+    year: '2026',
+    aspectRatio: '16/9',
+    aspectRatioLabel: '16:9 HD COMMERCIAL (1280 × 720)',
+    resolution: '1280 × 720',
+    duration: '00:16',
+    description: 'Promotional commercial for Sahayatri Auto Care in Naya Thimi, Bhaktapur. Features a photorealistic AI brand spokesperson with lifelike lip-sync and gestures, highlighting free bike/scooter servicing, washing, and two-wheeler trading.',
+    videoSrc: '/videos/commercial-02.mp4',
+    poster: '/videos/posters/commercial-02.jpg',
+    tags: ['AI Spokesperson', 'Auto Workshop', 'Local Campaign', 'Voice Synthesis'],
+  },
+  {
+    id: 'commercial-03',
+    number: '03',
+    title: 'Euporae Multi Collagen — Beauty & Skincare',
+    client: 'Euporae',
+    category: 'AI COMMERCIAL',
+    year: '2026',
+    aspectRatio: '9/16',
+    aspectRatioLabel: '9:16 VERTICAL REEL (1080 × 1920)',
+    resolution: '1080 × 1920',
+    duration: '00:15',
+    description: 'High-converting vertical social commercial for Euporae Multi Collagen beauty supplement. Tailored for Instagram Reels and TikTok, spotlighting daily skincare, hair vitality, and macro cellular hydration with photorealistic generative model direction.',
+    videoSrc: '/videos/commercial-03.mp4',
+    poster: '/videos/posters/commercial-03.jpg',
+    tags: ['Vertical Reel', 'Beauty & Skincare', 'Social Campaign', 'Macro Visuals'],
+  },
+  {
+    id: 'music-video-01',
+    number: '04',
+    title: 'Live Music Pub — Official Music Video',
+    client: 'Sacar Vedia Music Productions',
+    category: 'MUSIC VIDEO',
+    year: '2026',
+    aspectRatio: '16/9',
+    aspectRatioLabel: '16:9 FULL HD CINEMA (1920 × 1080)',
+    resolution: '1920 × 1080',
+    duration: '00:14',
+    description: 'Full-length cinematic music video produced by Sacar Vedia Company. Set against the atmospheric, rainy night streets of Kathmandu outside a glowing live music pub, blending emotional narrative storytelling, moody 24fps anamorphic lighting, wet asphalt reflections, and beat-synced visual pacing.',
+    videoSrc: '/videos/music-video-01.mp4',
+    poster: '/videos/posters/music-video-01.jpg',
+    tags: ['Music Video', 'Kathmandu Nights', 'Live Music Pub', 'Atmospheric AI Cinema', '1080p 24fps'],
+  },
+];
