@@ -727,6 +727,173 @@
   color: #ffffff;
 }
 
+/* Success Receipt Card */
+.success-receipt-card {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(37, 211, 102, 0.25);
+  border-radius: 14px;
+  padding: 16px 20px;
+  margin: 16px 0 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  text-align: left;
+}
+
+.receipt-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 0.82rem;
+  padding-bottom: 7px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.receipt-row:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.receipt-label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.6);
+  letter-spacing: 0.06em;
+  flex-shrink: 0;
+}
+
+.receipt-val {
+  font-family: var(--font-body);
+  color: #ffffff;
+  font-weight: 500;
+  text-align: right;
+  word-break: break-word;
+}
+
+.receipt-val.highlight {
+  color: #25D366;
+  font-weight: 700;
+}
+
+.receipt-val.brief-snippet {
+  max-width: 420px;
+  color: rgba(255, 255, 255, 0.85);
+  font-style: italic;
+}
+
+.success-action-buttons {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.btn-whatsapp-direct {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+  color: #000000;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 11px 20px;
+  border-radius: 10px;
+  text-decoration: none;
+  letter-spacing: 0.03em;
+  box-shadow: 0 4px 18px rgba(37, 211, 102, 0.35);
+  transition: all 0.25s ease;
+}
+
+.btn-whatsapp-direct:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(37, 211, 102, 0.55);
+  color: #000000;
+}
+
+.error-whatsapp-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(37, 211, 102, 0.15);
+  border: 1px solid rgba(37, 211, 102, 0.45);
+  color: #25D366;
+  padding: 8px 16px;
+  border-radius: 10px;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.error-whatsapp-btn:hover {
+  background: rgba(37, 211, 102, 0.3);
+  border-color: #25D366;
+  color: #ffffff;
+}
+
+/* WhatsApp Direct Forwarding Checkbox */
+.whatsapp-toggle-wrap {
+  margin: 4px 0 10px;
+}
+
+.whatsapp-toggle-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.whatsapp-toggle-checkbox {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.whatsapp-toggle-custom {
+  width: 18px;
+  height: 18px;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.whatsapp-toggle-checkbox:checked + .whatsapp-toggle-custom {
+  background: #25D366;
+  border-color: #25D366;
+  box-shadow: 0 0 10px rgba(37, 211, 102, 0.4);
+}
+
+.whatsapp-toggle-checkbox:checked + .whatsapp-toggle-custom::after {
+  content: '';
+  width: 4px;
+  height: 8px;
+  border: solid #000000;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg) translate(-0.5px, -0.5px);
+}
+
+.whatsapp-toggle-text {
+  font-family: var(--font-body);
+  font-size: 0.84rem;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.whatsapp-toggle-text strong {
+  color: #25D366;
+}
+
 /* Integrated Form Inputs */
 .contact-integrated-form {
   display: flex;
@@ -958,41 +1125,254 @@
 /* Responsive Styles */
 @media (max-width: 768px) {
   .contact-section {
-    padding: 90px 0 60px;
+    padding: 70px 0 50px;
+  }
+
+  .contact-container {
+    padding: 0 16px;
   }
 
   .contact-glass-card {
-    padding: 38px 20px 30px;
-    border-radius: 20px;
+    padding: 30px 16px 24px;
+    border-radius: 18px;
+  }
+
+  .contact-header {
+    margin-bottom: 24px;
+  }
+
+  .contact-headline {
+    font-size: clamp(1.6rem, 6.5vw, 2.3rem);
+    line-height: 1.15;
+    word-break: break-word;
+    margin-bottom: 14px;
+  }
+
+  .contact-subtitle {
+    font-size: 0.88rem;
+    line-height: 1.55;
   }
 
   .contact-channels-grid {
     grid-template-columns: 1fr;
+    gap: 12px;
+    margin-bottom: 18px;
+  }
+
+  .channel-card {
+    padding: 16px;
+    border-radius: 14px;
+  }
+
+  .channel-title {
+    font-size: 0.96rem;
+  }
+
+  .channel-value {
+    font-size: 0.82rem;
+  }
+
+  .contact-brief-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 12px 16px;
+    font-size: 0.8rem;
+  }
+
+  .social-icons-grid {
+    gap: 8px;
+    width: 100%;
+  }
+
+  .social-icon-btn {
+    flex: 1 1 calc(50% - 8px);
+    justify-content: center;
+    padding: 10px 12px;
+    font-size: 0.78rem;
+  }
+
+  /* Form & Inputs Optimization: 100% width, 16px font (no iOS zoom), comfortable touch targets */
+  .contact-form-container {
+    margin-top: 8px;
+  }
+
+  .form-divider-line {
+    margin-bottom: 24px;
+  }
+
+  .form-heading-group {
+    margin-bottom: 20px;
+  }
+
+  .embedded-form-title {
+    font-size: 1.25rem;
+    line-height: 1.2;
+  }
+
+  .embedded-form-desc {
+    font-size: 0.82rem;
   }
 
   .form-fields-grid {
     grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .contact-three-col-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-text-input {
+    width: 100%;
+    font-size: 16px; /* Prevents iOS auto-zoom on input focus */
+    min-height: 48px;
+    padding: 12px 16px;
+    border-radius: 12px;
+  }
+
+  .form-textarea {
+    width: 100%;
+    font-size: 16px; /* Prevents iOS auto-zoom on textarea focus */
+    min-height: 100px;
+  }
+
+  .whatsapp-toggle-wrap {
+    width: 100%;
+    margin: 8px 0 14px;
+  }
+
+  .whatsapp-toggle-text {
+    font-size: 0.8rem;
+    line-height: 1.4;
+  }
+
+  .form-submit-row {
+    width: 100%;
+    gap: 12px;
+  }
+
+  .form-submit-btn {
+    width: 100%;
+    max-width: 100%;
+    min-height: 50px;
+    padding: 14px 20px;
+    font-size: 0.82rem;
+    border-radius: 12px;
+    justify-content: center;
+  }
+
+  .form-trust-indicator {
+    font-size: 0.7rem;
+    text-align: center;
+  }
+
+  /* Success & Error Alert Panels */
+  .form-alert-panel {
+    padding: 20px 16px;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 14px;
+    border-radius: 16px;
+  }
+
+  .alert-body {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .alert-headline {
+    font-size: 1.05rem;
+  }
+
+  .alert-paragraph {
+    font-size: 0.82rem;
+  }
+
+  .success-receipt-card {
+    padding: 14px;
+    margin: 12px 0 16px;
+  }
+
+  .receipt-row {
+    font-size: 0.78rem;
+    gap: 8px;
+  }
+
+  .receipt-label {
+    font-size: 0.68rem;
+  }
+
+  .success-action-buttons {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+
+  .btn-whatsapp-direct,
+  .alert-reset-btn {
+    width: 100%;
+    justify-content: center;
+    min-height: 48px;
+  }
+
+  .alert-error-actions {
+    flex-direction: column;
+    width: 100%;
+    gap: 8px;
+  }
+
+  .error-whatsapp-btn,
+  .error-mailto-btn,
+  .error-retry-btn {
+    width: 100%;
+    justify-content: center;
+    min-height: 46px;
   }
 
   .contact-card-footer {
     flex-direction: column;
     gap: 12px;
     text-align: center;
+    padding-top: 24px;
+    margin-top: 28px;
   }
 
   .contact-bottom-bar {
     flex-direction: column;
-    gap: 12px;
+    gap: 10px;
     text-align: center;
+    padding-top: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-container {
+    padding: 0 12px;
   }
 
-  .social-icons-grid {
-    gap: 10px;
-    width: 100%;
+  .contact-glass-card {
+    padding: 26px 14px 20px;
+  }
+
+  .contact-badge {
+    font-size: 0.62rem;
+    padding: 4px 12px;
+  }
+
+  .channel-card {
+    padding: 14px;
+  }
+
+  .channel-icon-wrap {
+    width: 42px;
+    height: 42px;
   }
 
   .social-icon-btn {
-    flex: 1 1 calc(50% - 10px);
-    justify-content: center;
+    flex: 1 1 100%;
   }
 }
+

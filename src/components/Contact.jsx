@@ -10,19 +10,18 @@ import {
   CheckCircle2, 
   AlertCircle 
 } from 'lucide-react';
+import { 
+  CONTACT_EMAIL, 
+  WHATSAPP_PHONE, 
+  WHATSAPP_BASE_URL, 
+  buildWhatsAppUrl, 
+  sendInquiryEmail 
+} from '../services/emailService';
 import './Contact.css';
 
-export const CONTACT_EMAIL = "sakarmtech@gmail.com";
-export const WHATSAPP_URL = "https://wa.me/9779851239728?text=Hi,%20I%20would%20like%20to%20start%20a%20video%20project";
-
-/**
- * Formspree Endpoint Configuration
- * ---------------------------------
- * To receive form submissions at sakarmtech@gmail.com:
- * 1. Register a free form at https://formspree.io and point it to: sakarmtech@gmail.com
- * 2. Set VITE_FORMSPREE_ENDPOINT=https://formspree.io/f/YOUR_FORM_ID in your .env file
- */
-export const FORMSPREE_ENDPOINT = import.meta.env.VITE_FORMSPREE_ENDPOINT || "https://formspree.io/f/xvgopkbl";
+export { CONTACT_EMAIL, WHATSAPP_PHONE };
+export const WHATSAPP_URL = "https://wa.me/9779851239728";
+export const FORMSPREE_ENDPOINT = import.meta.env.VITE_FORMSPREE_ENDPOINT || `https://formsubmit.co/ajax/${CONTACT_EMAIL}`;
 
 const SOCIAL_LINKS = [
   {
@@ -80,6 +79,7 @@ export default function Contact({ onStartProject }) {
     subject: '',
     message: ''
   });
+  const [openWhatsAppOnSubmit, setOpenWhatsAppOnSubmit] = useState(true);
   const [status, setStatus] = useState('idle'); // 'idle' | 'submitting' | 'success' | 'error'
   const [errorMessage, setErrorMessage] = useState('');
 
@@ -115,53 +115,41 @@ export default function Contact({ onStartProject }) {
     setStatus('submitting');
     setErrorMessage('');
 
-    try {
-      const response = await fetch(FORMSPREE_ENDPOINT, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify({
+    // If user has chosen to open in WhatsApp, launch pre-filled WhatsApp link immediately
+    if (openWhatsAppOnSubmit) {
+      try {
+        const waUrl = buildWhatsAppUrl({
           name: formData.name.trim(),
-          email: formData.email.trim() || 'Not provided',
-          phone: formData.phone.trim() || 'Not provided',
-          preferredContact: formData.email.trim() || formData.phone.trim(),
-          subject: formData.subject.trim() || 'General Video Production Inquiry',
-          message: formData.message.trim() || 'Quick inquiry - No custom brief specified.',
-          _replyto: formData.email.trim() || CONTACT_EMAIL,
-          _to: CONTACT_EMAIL,
-          _subject: `[Portfolio Inquiry] ${formData.subject.trim() || 'Direct Client Message'} - ${formData.name.trim()}`
-        })
+          email: formData.email.trim(),
+          phone: formData.phone.trim(),
+          subject: formData.subject.trim(),
+          message: formData.message.trim()
+        });
+        window.open(waUrl, '_blank');
+      } catch (waErr) {
+        console.warn('WhatsApp window open notice:', waErr);
+      }
+    }
+
+    try {
+      const result = await sendInquiryEmail({
+        name: formData.name.trim(),
+        email: formData.email.trim(),
+        phone: formData.phone.trim(),
+        subject: formData.subject.trim(),
+        message: formData.message.trim()
       });
 
-      if (response.ok) {
+      if (result.ok) {
         setStatus('success');
       } else {
-        // If placeholder endpoint returns 404 or 400 in development, handle gracefully
-        if (FORMSPREE_ENDPOINT.includes('xvgopkbl') || response.status === 404) {
-          console.info(`[Formspree Demo Mode] Form submitted successfully to ${CONTACT_EMAIL}:`, formData);
-          setStatus('success');
-          return;
-        }
-
-        const data = await response.json().catch(() => ({}));
-        if (data.errors && data.errors.length > 0) {
-          setErrorMessage(data.errors.map(err => err.message).join(', '));
-        } else {
-          setErrorMessage(`Unable to dispatch message automatically. Please write directly to ${CONTACT_EMAIL}.`);
-        }
+        setErrorMessage(result.error || `Unable to reach the automated endpoint. Please email directly at ${CONTACT_EMAIL}.`);
         setStatus('error');
       }
     } catch (err) {
       console.warn('Submission network notice:', err);
-      // Fallback for offline or blocked network during local testing
-      if (FORMSPREE_ENDPOINT.includes('xvgopkbl')) {
-        setStatus('success');
-      } else {
-        setErrorMessage(`Network error occurred. You can reach us directly at ${CONTACT_EMAIL}.`);
-        setStatus('error');
-      }
+      setErrorMessage(`Network notice: Your brief is ready to send directly via WhatsApp or email to ${CONTACT_EMAIL}.`);
+      setStatus('error');
     }
   };
 
@@ -207,7 +195,7 @@ export default function Contact({ onStartProject }) {
           <div className="contact-channels-grid">
             {/* WhatsApp Direct Line Card */}
             <a
-              href={WHATSAPP_URL}
+              href={WHATSAPP_BASE_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="channel-card whatsapp-channel-card"
@@ -343,18 +331,66 @@ export default function Contact({ onStartProject }) {
                   <CheckCircle2 size={34} className="alert-check-icon" />
                 </div>
                 <div className="alert-body">
-                  <h4 className="alert-headline">MESSAGE SENT SUCCESSFULLY!</h4>
+                  <h4 className="alert-headline">INQUIRY RECEIVED AT {CONTACT_EMAIL.toUpperCase()}</h4>
                   <p className="alert-paragraph">
                     Thank you, <strong>{formData.name || 'Client'}</strong>. Your inquiry has been transmitted directly to <strong>{CONTACT_EMAIL}</strong>.
-                    Our production team has received your details and will be in touch with custom rates and timelines.
+                    Our production team has received your brief and will review it within 24 hours.
                   </p>
-                  <button
-                    type="button"
-                    className="btn-primary alert-reset-btn"
-                    onClick={handleResetForm}
-                  >
-                    <span>SEND ANOTHER MESSAGE</span>
-                  </button>
+
+                  {/* Summary Receipt Card */}
+                  <div className="success-receipt-card">
+                    <div className="receipt-row">
+                      <span className="receipt-label">CLIENT / BRAND:</span>
+                      <span className="receipt-val">{formData.name}</span>
+                    </div>
+                    <div className="receipt-row">
+                      <span className="receipt-label">CONTACT:</span>
+                      <span className="receipt-val">
+                        {formData.email || ''}{formData.email && formData.phone ? ' • ' : ''}{formData.phone ? `Tel/WA: ${formData.phone}` : ''}
+                      </span>
+                    </div>
+                    {formData.subject && (
+                      <div className="receipt-row">
+                        <span className="receipt-label">SUBJECT:</span>
+                        <span className="receipt-val">{formData.subject}</span>
+                      </div>
+                    )}
+                    {formData.message && (
+                      <div className="receipt-row">
+                        <span className="receipt-label">VISION OVERVIEW:</span>
+                        <span className="receipt-val brief-snippet">{formData.message}</span>
+                      </div>
+                    )}
+                    <div className="receipt-row">
+                      <span className="receipt-label">ROUTED DIRECTLY TO:</span>
+                      <span className="receipt-val highlight">{CONTACT_EMAIL}</span>
+                    </div>
+                  </div>
+
+                  {/* Direct WhatsApp Call to Action & Reset */}
+                  <div className="success-action-buttons">
+                    <a
+                      href={buildWhatsAppUrl(formData)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn-whatsapp-direct"
+                      id="contact-success-whatsapp-btn"
+                    >
+                      <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                      </svg>
+                      <span>CONTINUE ON WHATSAPP (+977 9851239728)</span>
+                      <ArrowUpRight size={15} />
+                    </a>
+
+                    <button
+                      type="button"
+                      className="btn-primary alert-reset-btn"
+                      onClick={handleResetForm}
+                    >
+                      <span>SEND ANOTHER MESSAGE</span>
+                    </button>
+                  </div>
                 </div>
               </div>
             ) : (
@@ -369,6 +405,15 @@ export default function Contact({ onStartProject }) {
                         {errorMessage || `Unable to reach the automated endpoint. Please email us directly at ${CONTACT_EMAIL}.`}
                       </p>
                       <div className="alert-error-actions">
+                        <a
+                          href={buildWhatsAppUrl(formData)}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="error-whatsapp-btn"
+                        >
+                          <span>Send Brief via WhatsApp</span>
+                          <ArrowUpRight size={14} />
+                        </a>
                         <a
                           href={`mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(formData.subject || 'Video Production Inquiry')}&body=${encodeURIComponent(`Hi Sacar Vedia Company,\n\nName: ${formData.name}\nEmail: ${formData.email || 'Not provided'}\nPhone/WhatsApp: ${formData.phone || 'Not provided'}\n\nProject Brief:\n${formData.message || 'Quick inquiry - No custom brief specified.'}`)}`}
                           className="error-mailto-btn"
@@ -474,6 +519,23 @@ export default function Contact({ onStartProject }) {
                     placeholder="Optional: Share project goals, deliverables, script ideas, or leave blank for a quick consultation..."
                     className="form-text-input form-textarea"
                   />
+                </div>
+
+                {/* Optional WhatsApp Direct Forwarding Checkbox */}
+                <div className="whatsapp-toggle-wrap">
+                  <label className="whatsapp-toggle-label" htmlFor="contact-wa-toggle">
+                    <input
+                      type="checkbox"
+                      id="contact-wa-toggle"
+                      checked={openWhatsAppOnSubmit}
+                      onChange={(e) => setOpenWhatsAppOnSubmit(e.target.checked)}
+                      className="whatsapp-toggle-checkbox"
+                    />
+                    <span className="whatsapp-toggle-custom" />
+                    <span className="whatsapp-toggle-text">
+                      Also open brief directly in <strong>WhatsApp (+977 9851239728)</strong> on submit
+                    </span>
+                  </label>
                 </div>
 
                 {/* Submit Action Bar */}

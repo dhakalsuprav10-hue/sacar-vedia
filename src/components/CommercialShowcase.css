@@ -1144,38 +1144,101 @@
 
 @media (max-width: 768px) {
   .commercials-section {
-    padding: 80px 0 60px;
+    padding: 70px 0 50px;
   }
 
   .commercials-container {
-    padding: 0 20px;
-    gap: 40px;
+    padding: 0 16px;
+    gap: 36px;
+  }
+
+  .commercials-title {
+    font-size: clamp(1.65rem, 6.5vw, 2.35rem);
+    line-height: 1.15;
+    word-break: break-word;
+    margin-bottom: 14px;
+  }
+
+  .commercials-subtitle {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  .commercial-card {
+    padding: 10px 10px 14px;
+    border-radius: 16px;
+  }
+
+  .card-media-wrapper {
+    aspect-ratio: 16 / 9;
+    border-radius: 12px;
+  }
+
+  .card-content-area {
+    padding: 12px 4px 4px;
+  }
+
+  .card-title {
+    font-size: 1.15rem;
+  }
+
+  .card-desc {
+    font-size: 0.84rem;
+    line-height: 1.45;
   }
 
   .card-actions-group {
     flex-direction: column;
     align-items: stretch;
+    gap: 8px;
+    margin-top: 12px;
   }
 
   .card-action-primary,
   .card-action-secondary {
     width: 100%;
+    justify-content: center;
+    min-height: 46px;
   }
 
   .commercials-cta-banner {
     flex-direction: column;
-    padding: 28px 24px;
-    gap: 20px;
-    align-items: flex-start;
+    padding: 24px 16px;
+    gap: 18px;
+    align-items: center;
+    text-align: center;
+    border-radius: 16px;
+  }
+
+  .banner-title {
+    font-size: 1.25rem;
+  }
+
+  .banner-subtitle {
+    font-size: 0.84rem;
   }
 
   .banner-cta-btn {
     width: 100%;
+    min-height: 48px;
+    justify-content: center;
+  }
+
+  .cinema-theater-container {
+    max-width: 96vw;
+    max-height: 94vh;
+    padding: 12px;
+    border-radius: 16px;
   }
 
   .theater-header-bar {
     flex-direction: column;
     align-items: flex-start;
+    gap: 10px;
+  }
+
+  .theater-title {
+    font-size: 1.1rem;
   }
 
   .theater-top-actions {
@@ -1201,5 +1264,27 @@
   .theater-inquire-btn {
     width: 100%;
     justify-content: center;
+    min-height: 44px;
   }
 }
+
+@media (max-width: 480px) {
+  .commercials-container {
+    padding: 0 14px;
+  }
+
+  .commercials-eyebrow {
+    font-size: 0.65rem;
+    padding: 5px 12px;
+  }
+
+  .commercials-title {
+    font-size: 1.6rem;
+  }
+
+  .card-specs-row {
+    gap: 8px;
+    font-size: 0.65rem;
+  }
+}
+

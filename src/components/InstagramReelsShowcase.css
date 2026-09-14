@@ -863,14 +863,62 @@
 }
 
 @media (max-width: 500px) {
+  .reels-showcase-wrapper {
+    max-width: 100%;
+    padding: 0 8px;
+  }
+
+  .reels-ambient-glow {
+    width: 260px;
+    height: 400px;
+    margin: -200px 0 0 -130px;
+    filter: blur(40px);
+  }
+
   .phone-chassis {
-    width: 295px;
-    height: 570px;
-    border-radius: 40px;
+    width: min(285px, 86vw);
+    height: calc(min(285px, 86vw) * 1.88);
+    max-height: 540px;
+    border-radius: 38px;
+    padding: 7px;
   }
 
   .phone-screen {
-    border-radius: 30px;
+    border-radius: 28px;
+  }
+
+  .phone-top-bar {
+    height: 32px;
+  }
+
+  .dynamic-island {
+    width: 78px;
+    height: 18px;
+  }
+
+  .camera-sensor {
+    width: 8px;
+    height: 8px;
+  }
+
+  .sensor-dot {
+    width: 4px;
+    height: 4px;
+  }
+
+  .phone-time {
+    font-size: 0.65rem;
+    padding-left: 14px;
+  }
+
+  .phone-status-icons {
+    padding-right: 14px;
+    gap: 4px;
+  }
+
+  .phone-status-icons svg {
+    width: 11px;
+    height: 11px;
   }
 
   .reels-external-controls {
@@ -878,11 +926,72 @@
   }
 
   .reel-uploader-info {
-    right: 56px;
-    bottom: 20px;
+    right: 50px;
+    bottom: 16px;
+    left: 12px;
+  }
+
+  .uploader-avatar-ring {
+    width: 26px;
+    height: 26px;
+  }
+
+  .uploader-handle {
+    font-size: 0.76rem;
   }
 
   .reel-caption-text {
+    font-size: 0.66rem;
+    line-height: 1.35;
+  }
+
+  .reel-audio-chip {
+    padding: 2px 8px;
+  }
+
+  .audio-chip-text {
+    font-size: 0.6rem;
+  }
+
+  .reels-floating-actions {
+    right: 8px;
+    bottom: 24px;
+    gap: 12px;
+  }
+
+  .reel-action-btn {
+    width: 32px;
+    height: 32px;
+  }
+
+  .action-count {
+    font-size: 0.6rem;
+  }
+
+  .reels-status-chip {
+    padding: 5px 12px;
+  }
+
+  .chip-text {
     font-size: 0.68rem;
   }
+
+  .chip-fullscreen-btn {
+    padding: 3px 8px;
+    font-size: 0.62rem;
+  }
 }
+
+@media (max-width: 360px) {
+  .phone-chassis {
+    width: 260px;
+    height: 490px;
+    border-radius: 32px;
+    padding: 6px;
+  }
+
+  .phone-screen {
+    border-radius: 24px;
+  }
+}
+
