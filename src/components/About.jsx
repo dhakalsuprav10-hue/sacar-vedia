@@ -60,25 +60,23 @@ export default function About({ onStartProject }) {
       <div className="about-container">
         {/* Section Header */}
         <div className="about-header">
-          <div className="about-eyebrow">
+          <div className="about-eyebrow reveal-text">
             <span className="eyebrow-ping">
               <span className="ping-ring" />
               <span className="ping-dot" />
             </span>
             <Cpu size={13} className="eyebrow-icon" />
-            <span>ABOUT SACAR VEDIA COMPANY • <span className="eyebrow-nepali" lang="ne">काठमाडौँ, नेपाल</span></span>
+            <span>ABOUT SAKAR VEDIA • <span className="eyebrow-nepali" lang="ne">काठमाडौँ, नेपाल</span></span>
           </div>
 
-          {/* Main Futuristic Bilingual Headline */}
-          <h2 className="about-main-headline">
+          {/* Main Headline */}
+          <h2 className="about-main-headline reveal-text reveal-delay-1">
             Where AI Meets <span className="headline-champagne">Cinematic Art</span>
-            <span className="headline-separator"> | </span>
-            <span className="headline-nepali" lang="ne">भिडियो निर्माणको नयाँ युग</span>
           </h2>
 
-          {/* Elegant Introduction Paragraph */}
-          <p className="about-intro-text">
-            Based in Kathmandu, <strong>Sacar Vedia Company</strong> is redefining digital storytelling. We blend cutting-edge AI technology with deep creative roots to deliver truly <span className="highlight-nepali">babal (exceptional)</span> visual experiences. From AI commercials to viral reels, we turn your <span className="highlight-nepali">Kalpana (imagination)</span> into stunning on-screen reality, bringing global production standards to your fingertips.
+          {/* Minimal Introduction */}
+          <p className="about-intro-text reveal-text reveal-delay-2">
+            Kathmandu-based studio blending advanced AI cinema with commercial video direction. We deliver broadcast-grade advertisements, viral vertical reels, and creative visuals for brands worldwide.
           </p>
         </div>
 
@@ -87,7 +85,7 @@ export default function About({ onStartProject }) {
           <div className="stats-glass-reflection" aria-hidden="true" />
           <div className="stats-grid">
             {STATS_DATA.map((stat, idx) => (
-              <div key={idx} className="stat-card">
+              <div key={idx} className="stat-card reveal-text reveal-delay-2">
                 <div className="stat-number-wrap">
                   <span className="stat-number">{stat.value}</span>
                 </div>
@@ -103,15 +101,15 @@ export default function About({ onStartProject }) {
         {/* 'Why Choose Us' Feature Cards Grid */}
         <div className="about-features-section">
           <div className="features-header">
-            <div className="features-pill">
+            <div className="features-pill reveal-text">
               <Layers size={12} />
               <span>THE PRODUCTION ADVANTAGE</span>
             </div>
-            <h3 className="features-title">
-              WHY CHOOSE <span className="title-champagne">SACAR VEDIA COMPANY</span>
+            <h3 className="features-title reveal-text reveal-delay-1">
+              WHY CHOOSE <span className="title-champagne">SAKAR VEDIA</span>
             </h3>
-            <p className="features-subtitle">
-              Engineered for ambitious businesses, marketing agencies, and visionary creators across Nepal and worldwide.
+            <p className="features-subtitle reveal-text reveal-delay-2">
+              Engineered for businesses, agencies, and creators seeking fast, high-impact video campaigns.
             </p>
           </div>
 
@@ -131,7 +129,7 @@ export default function About({ onStartProject }) {
                     <span className="card-tag">{card.tag}</span>
                   </div>
 
-                  <div className="card-body">
+                  <div className="card-body reveal-text reveal-delay-2">
                     <h4 className="card-title">
                       {card.title}
                     </h4>
@@ -151,12 +149,12 @@ export default function About({ onStartProject }) {
           {/* Direct CTA Bridge */}
           {onStartProject && (
             <div className="about-cta-bar">
-              <span className="cta-bar-text">
-                Have a campaign in mind? Launch your commercial with Nepal's premier AI studio.
+              <span className="cta-bar-text reveal-text">
+                Ready to elevate your brand? Launch your next video production today.
               </span>
               <button 
                 type="button" 
-                className="btn-primary about-action-btn"
+                className="btn-primary about-action-btn reveal-text reveal-delay-1"
                 onClick={onStartProject}
                 id="about-start-project-btn"
               >

@@ -142,56 +142,50 @@ export default function Hero({ onOpenReel, onContactClick, isModalOpen = false }
       <div className="hero-container">
         {/* Left Column: Hero Text Content */}
         <div className="hero-content">
-          {/* Top Status Pill with Generous Vertical Breathing Room */}
-          <div className="hero-status-pill">
+          {/* Top Status Pill - Minimal, clean, blue & white */}
+          <div className="hero-status-pill reveal-text">
             <span className="status-indicator">
               <span className="status-ping" />
               <span className="status-core" />
             </span>
-            <span className="status-text">AVAILABLE FOR SELECT COMMISSIONS • Q3/Q4</span>
+            <span className="status-text">AVAILABLE FOR COMMISSIONS • Q3/Q4</span>
           </div>
 
-          {/* Prominent Name */}
-          <div className="hero-author-wrapper">
-            <span className="author-prefix">PRODUCTION PORTFOLIO OF</span>
-            <h2 className="hero-author-name">SACAR VEDIA COMPANY</h2>
-          </div>
-
-          {/* Monumental Ultra-Bold Display Headline */}
-          <h1 className="hero-headline">
-            I CREATE <span className="headline-champagne">WHAT’S NEXT.</span>
+          {/* Uppercase Brand Title in Anton Font */}
+          <h1 className="hero-brand-title reveal-text reveal-delay-1">
+            SAKAR VEDIA
           </h1>
 
-          {/* Sub-headline */}
-          <p className="hero-subheadline">
-            Sacar Vedia Company Commercial &amp; Video Production
+          {/* Minimal Tagline in Simple Font */}
+          <p className="hero-tagline reveal-text reveal-delay-2">
+            COMMERCIAL &amp; VIDEO PRODUCTION
+          </p>
+
+          {/* Outcome-Focused Sub-headline - Minimal yet comprehensive */}
+          <p className="hero-description reveal-text reveal-delay-2">
+            High-impact commercial ads, AI cinema &amp; viral vertical reels for global brands.
           </p>
 
           {/* Official Government PAN & Business Registration Verification Toggle */}
-          <div className="hero-pan-verification-container">
+          <div className="hero-pan-verification-container reveal-text reveal-delay-3">
             <button 
               type="button" 
               className="pan-verification-trigger-btn"
               onClick={() => setPanModalOpen(true)}
               id="view-pan-certificate-btn"
-              title="View Official PAN & Business Registration Certificate"
+              title="View Official Government PAN & Business Registration Certificate"
             >
               <span className="pan-btn-icon" aria-hidden="true">📄</span>
-              <span className="pan-btn-text">View Official PAN &amp; Business Registration Certificate</span>
+              <span className="pan-btn-text">Official PAN &amp; Business Registration</span>
               <span className="pan-btn-badge">
                 <CheckCircle2 size={12} className="pan-badge-check" />
-                <span>GOVT. VERIFIED</span>
+                <span>VERIFIED</span>
               </span>
             </button>
           </div>
 
-          {/* Outcome-Focused Sub-headline */}
-          <p className="hero-description">
-            Crafting high-impact AI cinema, commercial spots, and audio-reactive visuals for global brands.
-          </p>
-
           {/* Interactive Feature Tags / Discipline Pills */}
-          <div className="hero-disciplines">
+          <div className="hero-disciplines reveal-text reveal-delay-3">
             <button 
               type="button" 
               className="discipline-tag discipline-pill-btn"
@@ -199,7 +193,7 @@ export default function Hero({ onOpenReel, onContactClick, isModalOpen = false }
               title="View AI Film Direction Reel"
             >
               <Film size={13} className="discipline-icon" />
-              <span>AI Film Direction</span>
+              <span>AI Cinema</span>
             </button>
             <button 
               type="button" 
@@ -208,7 +202,7 @@ export default function Hero({ onOpenReel, onContactClick, isModalOpen = false }
               title="View AI Commercials Reel"
             >
               <Flame size={13} className="discipline-icon" />
-              <span>AI Advertisements</span>
+              <span>Commercials</span>
             </button>
             <button 
               type="button" 
@@ -217,7 +211,7 @@ export default function Hero({ onOpenReel, onContactClick, isModalOpen = false }
               title="View Vertical Commercial Reel"
             >
               <Sparkles size={13} className="discipline-icon" />
-              <span>Vertical Commercials</span>
+              <span>Vertical Reels</span>
             </button>
             <button 
               type="button" 
@@ -231,7 +225,7 @@ export default function Hero({ onOpenReel, onContactClick, isModalOpen = false }
           </div>
 
           {/* Unified Primary & Secondary CTA Group */}
-          <div className="hero-cta-group">
+          <div className="hero-cta-group reveal-text reveal-delay-4">
             <button 
               type="button" 
               className="btn-primary hero-btn-work"
@@ -254,20 +248,20 @@ export default function Hero({ onOpenReel, onContactClick, isModalOpen = false }
           </div>
 
           {/* Social Proof Stats Bar Relocated Directly Underneath CTAs */}
-          <div className="hero-metrics-bar">
+          <div className="hero-metrics-bar reveal-text reveal-delay-4">
             <div className="metric-item">
               <span className="metric-num">35M+</span>
-              <span className="metric-label">Digital Views</span>
+              <span className="metric-label">Views</span>
             </div>
             <div className="metric-divider" />
             <div className="metric-item">
               <span className="metric-num">40+</span>
-              <span className="metric-label">Global Campaigns</span>
+              <span className="metric-label">Campaigns</span>
             </div>
             <div className="metric-divider" />
             <div className="metric-item">
               <span className="metric-num">4K</span>
-              <span className="metric-label">Neural Cinema</span>
+              <span className="metric-label">Cinema</span>
             </div>
           </div>
         </div>

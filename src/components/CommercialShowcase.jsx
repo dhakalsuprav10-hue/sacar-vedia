@@ -223,15 +223,15 @@ export default function CommercialShowcase({ onStartProject }) {
       <div className="commercial-container">
         {/* Section Header */}
         <div className="showcase-section-header">
-          <div className="section-pill">
+          <div className="section-pill reveal-text">
             <Sparkles size={12} className="pill-sparkle" />
             <span>COMMERCIAL SHOWCASE</span>
           </div>
-          <h2 className="showcase-title">
+          <h2 className="showcase-title reveal-text reveal-delay-1">
             COMMERCIAL <span className="title-champagne">SHOWCASE.</span>
           </h2>
-          <p className="showcase-subtitle">
-            Commercial productions, brand commercials, and high-converting visual campaigns produced by Sacar Vedia Company.
+          <p className="showcase-subtitle reveal-text reveal-delay-2">
+            High-impact commercials, brand campaigns, and vertical reels by Sakar Vedia.
           </p>
         </div>
 
@@ -361,7 +361,7 @@ export default function CommercialShowcase({ onStartProject }) {
 
                 {/* Project Details */}
                 <div className="card-content">
-                  <div className="card-header-meta">
+                  <div className="card-header-meta reveal-text">
                     <span className="card-number">{project.number}</span>
                     <span className="card-meta-ratio">
                       {isVertical ? <Smartphone size={11} /> : <Monitor size={11} />}
@@ -369,12 +369,12 @@ export default function CommercialShowcase({ onStartProject }) {
                     </span>
                   </div>
 
-                  <h3 className="card-title">{project.title}</h3>
+                  <h3 className="card-title reveal-text reveal-delay-1">{project.title}</h3>
 
-                  <p className="card-description">{project.description}</p>
+                  <p className="card-description reveal-text reveal-delay-2">{project.description}</p>
 
                   {/* Actions Group */}
-                  <div className="card-actions-group">
+                  <div className="card-actions-group reveal-text reveal-delay-3">
                     <button 
                       type="button" 
                       className="card-action-primary"
@@ -411,8 +411,21 @@ export default function CommercialShowcase({ onStartProject }) {
                     </button>
                   </div>
 
+                  {/* Distinct "Create similar to this one" Button */}
+                  <button
+                    type="button"
+                    className="card-create-similar-btn reveal-text reveal-delay-3"
+                    onClick={() => onStartProject && onStartProject({ title: project.title, category: project.category })}
+                    id={`btn-similar-${project.id}`}
+                    aria-label={`Create a video similar to ${project.title}`}
+                  >
+                    <Sparkles size={14} className="similar-btn-icon" />
+                    <span>Create similar to this one</span>
+                    <ArrowUpRight size={14} className="similar-btn-arrow" />
+                  </button>
+
                   {/* Tags List */}
-                  <div className="card-tags-list">
+                  <div className="card-tags-list reveal-text reveal-delay-4">
                     {project.tags.map((tag) => (
                       <span key={tag} className="card-mini-tag">{tag}</span>
                     ))}
@@ -427,21 +440,21 @@ export default function CommercialShowcase({ onStartProject }) {
         <div className="commercials-cta-banner">
           <div className="banner-glow-orb" aria-hidden="true" />
           <div className="banner-content">
-            <span className="banner-pill">
+            <span className="banner-pill reveal-text">
               <Sparkles size={12} /> BESPOKE COMMISSIONS
             </span>
-            <h3 className="banner-headline">HAVE A COMMERCIAL CAMPAIGN IN MIND?</h3>
-            <p className="banner-subtext">
-              Direct commissions are open for commercial brand spots, visual campaigns, and custom AI video pipelines in any target aspect ratio.
+            <h3 className="banner-headline reveal-text reveal-delay-1">HAVE A VIDEO PROJECT IN MIND?</h3>
+            <p className="banner-subtext reveal-text reveal-delay-2">
+              Direct commissions open for commercial spots, brand campaigns, and vertical reels.
             </p>
           </div>
           <button 
             type="button" 
-            className="btn-primary banner-cta-btn"
+            className="btn-primary banner-cta-btn reveal-text reveal-delay-3"
             onClick={onStartProject}
             id="commercials-inquire-btn"
           >
-            <span>COMMISSION A PROJECT</span>
+            <span>START A PROJECT</span>
             <ArrowUpRight size={16} />
           </button>
         </div>
@@ -697,10 +710,11 @@ export default function CommercialShowcase({ onStartProject }) {
                   className="theater-inquire-btn"
                   onClick={() => {
                     handleCloseFullscreen();
-                    if (onStartProject) onStartProject();
+                    if (onStartProject) onStartProject({ title: fullscreenProject.title, category: fullscreenProject.category });
                   }}
                 >
-                  <span>COMMISSION SIMILAR PROJECT</span>
+                  <Sparkles size={14} />
+                  <span>Create similar to this one</span>
                   <ArrowUpRight size={15} />
                 </button>
               </div>

@@ -150,10 +150,10 @@
   display: inline-block;
   vertical-align: middle;
   padding: 4px 6px;
-  background: linear-gradient(135deg, #ffffff 0%, #f5e8d0 35%, #dfc288 70%, #f9a826 100%);
+  background: linear-gradient(135deg, #ffffff 20%, #60a5fa 70%, #38bdf8 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0 0 24px rgba(223, 194, 136, 0.35));
+  filter: drop-shadow(0 0 24px rgba(56, 189, 248, 0.35));
   text-rendering: optimizeLegibility;
   font-feature-settings: "kern" 1, "liga" 1, "clig" 1, "calt" 1;
   -webkit-font-smoothing: antialiased;

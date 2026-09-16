@@ -152,7 +152,7 @@
 }
 
 .badge-sparkle {
-  color: var(--accent-gold);
+  color: var(--accent-sky);
 }
 
 .contact-headline {
@@ -167,7 +167,7 @@
 }
 
 .headline-gradient {
-  background: linear-gradient(135deg, #ffffff 10%, #f5e8d0 40%, #dfc288 75%, #c5a059 100%);
+  background: linear-gradient(135deg, #ffffff 30%, #60a5fa 70%, #38bdf8 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   display: inline-block;

@@ -8,9 +8,11 @@ import CommercialShowcase from './components/CommercialShowcase';
 import Services from './components/Services';
 import About from './components/About';
 import Contact from './components/Contact';
+import useScrollReveal from './hooks/useScrollReveal';
 import './App.css';
 
 export default function App() {
+  useScrollReveal();
   const [reelModalOpen, setReelModalOpen] = useState(false);
   const [reelCategory, setReelCategory] = useState('film');
   const [projectModalOpen, setProjectModalOpen] = useState(false);

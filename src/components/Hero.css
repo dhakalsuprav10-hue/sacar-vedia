@@ -1,5 +1,5 @@
 /* ===================================================================
-   HERO COMPONENT STYLING — ULTRA-SLEEK STUDIO AESTHETIC
+   HERO COMPONENT STYLING — SAKAR VEDIA (BLUE & WHITE MINIMAL)
    =================================================================== */
 
 .hero-section {
@@ -7,23 +7,23 @@
   min-height: 100vh;
   display: flex;
   align-items: center;
-  padding: 136px 0 64px;
+  padding: 130px 0 60px;
   overflow: hidden;
   z-index: 2;
   contain: layout style;
   transform: translateZ(0);
 }
 
-/* Background Multi-Plane Atmosphere */
+/* Background Multi-Plane Atmosphere with Nepal Blue Hues */
 .hero-mesh-background {
   position: absolute;
   inset: -5%;
   width: 110%;
   height: 110%;
   background-image: 
-    radial-gradient(at 16% 20%, rgba(197, 160, 89, 0.06) 0px, transparent 48%),
-    radial-gradient(at 84% 80%, rgba(45, 80, 88, 0.08) 0px, transparent 52%),
-    radial-gradient(at 50% 50%, rgba(8, 11, 14, 0.4) 0px, transparent 80%);
+    radial-gradient(at 16% 20%, rgba(0, 56, 147, 0.18) 0px, transparent 48%),
+    radial-gradient(at 84% 80%, rgba(56, 189, 248, 0.12) 0px, transparent 52%),
+    radial-gradient(at 50% 50%, rgba(7, 10, 14, 0.6) 0px, transparent 80%);
   pointer-events: none;
   z-index: -2;
   contain: strict;
@@ -39,7 +39,7 @@
   left: 14%;
   width: 580px;
   height: 580px;
-  background: radial-gradient(circle, rgba(197, 160, 89, 0.055) 0%, rgba(197, 160, 89, 0.015) 40%, transparent 68%);
+  background: radial-gradient(circle, rgba(0, 86, 204, 0.12) 0%, rgba(56, 189, 248, 0.04) 45%, transparent 70%);
   pointer-events: none;
   z-index: -2;
   contain: strict;
@@ -64,7 +64,7 @@
 
 .ambient-line {
   position: absolute;
-  background: linear-gradient(90deg, transparent, rgba(197, 160, 89, 0.08), transparent);
+  background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.16), transparent);
   height: 1px;
 }
 
@@ -80,7 +80,7 @@
   right: 8%;
   width: 50%;
   transform: rotate(3deg);
-  background: linear-gradient(90deg, transparent, rgba(56, 120, 130, 0.07), transparent);
+  background: linear-gradient(90deg, transparent, rgba(0, 86, 204, 0.18), transparent);
 }
 
 .line-3 {
@@ -91,7 +91,7 @@
   opacity: 0.6;
 }
 
-/* Floating Subtle Light Particles */
+/* Floating Light Particles */
 .hero-particles-layer {
   position: absolute;
   inset: 0;
@@ -107,8 +107,8 @@
 .particle {
   position: absolute;
   border-radius: 50%;
-  background: rgba(223, 194, 136, 0.4);
-  box-shadow: 0 0 10px rgba(197, 160, 89, 0.3);
+  background: rgba(56, 189, 248, 0.5);
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
   contain: strict;
   will-change: transform, opacity;
   transform: translateZ(0);
@@ -123,7 +123,7 @@
 
 @keyframes particleShimmer {
   0% { opacity: 0.3; transform: scale(0.8) translateY(0); }
-  50% { opacity: 0.85; transform: scale(1.15) translateY(-5px); }
+  50% { opacity: 0.9; transform: scale(1.15) translateY(-5px); }
   100% { opacity: 0.4; transform: scale(0.9) translateY(4px); }
 }
 
@@ -133,7 +133,7 @@
   padding: 0 40px;
   display: grid;
   grid-template-columns: 1.16fr 0.84fr;
-  gap: 60px;
+  gap: 56px;
   align-items: center;
   width: 100%;
 }
@@ -146,19 +146,19 @@
   z-index: 5;
 }
 
-/* Status Pill with Generous Vertical Room */
+/* Status Pill with Blue & White Theme */
 .hero-status-pill {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  background: rgba(197, 160, 89, 0.06);
-  border: 1px solid rgba(197, 160, 89, 0.24);
+  background: rgba(0, 56, 147, 0.18);
+  border: 1px solid rgba(56, 189, 248, 0.32);
   border-radius: 9999px;
-  padding: 7px 18px;
-  margin-bottom: 34px;
+  padding: 6px 16px;
+  margin-bottom: 22px;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35), 0 0 15px rgba(56, 189, 248, 0.12);
 }
 
 .status-indicator {
@@ -173,18 +173,18 @@
 .status-core {
   width: 7px;
   height: 7px;
-  background-color: var(--accent-gold);
+  background-color: var(--accent-sky);
   border-radius: 50%;
-  box-shadow: 0 0 8px rgba(197, 160, 89, 0.6);
+  box-shadow: 0 0 8px #38bdf8;
 }
 
 .status-ping {
   position: absolute;
   width: 15px;
   height: 15px;
-  background-color: var(--accent-gold);
+  background-color: var(--accent-sky);
   border-radius: 50%;
-  opacity: 0.55;
+  opacity: 0.6;
   animation: pingAnimation 2.4s cubic-bezier(0, 0, 0.2, 1) infinite;
 }
 
@@ -199,83 +199,50 @@
   font-family: var(--font-body);
   font-size: 0.72rem;
   font-weight: 600;
-  letter-spacing: 0.09em;
-  color: var(--accent-gold-light);
+  letter-spacing: 0.08em;
+  color: var(--accent-sky);
 }
 
-/* Author Name with Breathing Room */
-.hero-author-wrapper {
-  margin-bottom: 16px;
+/* Prominent Uppercase Brand Title in Anton Font */
+.hero-brand-title {
+  font-family: var(--font-anton);
+  font-size: clamp(3.2rem, 8.2vw, 6.4rem);
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  line-height: 0.94;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  color: #ffffff;
+  text-shadow: 0 0 40px rgba(56, 189, 248, 0.35), 0 2px 10px rgba(0, 0, 0, 0.8);
 }
 
-.author-prefix {
-  display: block;
+/* Subtitle Tagline in Simple Font */
+.hero-tagline {
   font-family: var(--font-body);
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.22em;
-  color: var(--text-dim);
-  margin-bottom: 6px;
-}
-
-.hero-author-name {
-  font-family: var(--font-display);
-  font-size: clamp(1.6rem, 2.4vw, 2.1rem);
-  font-weight: 800;
-  letter-spacing: 0.05em;
-  color: var(--text-primary);
-  text-transform: uppercase;
-  line-height: 1.15;
-}
-
-/* Main Display Headline */
-.hero-headline {
-  font-family: var(--font-display);
-  font-size: clamp(3.1rem, 5.6vw, 5.2rem);
-  font-weight: 900;
-  letter-spacing: -0.04em;
-  line-height: 1.02;
-  margin-bottom: 24px;
-  text-transform: uppercase;
-  color: var(--text-primary);
-}
-
-.headline-champagne {
-  background: linear-gradient(135deg, #f5e8d0 10%, #dfc288 50%, #c5a059 90%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  display: inline-block;
-  position: relative;
-}
-
-/* Sub-headline: Sacar Vedia Company Commercial & Video Production */
-.hero-subheadline {
-  font-family: var(--font-display);
-  font-size: clamp(1.1rem, 1.5vw, 1.35rem);
+  font-size: clamp(0.88rem, 1.45vw, 1.15rem);
   font-weight: 700;
-  letter-spacing: 0.02em;
-  line-height: 1.35;
+  letter-spacing: 0.12em;
+  line-height: 1.3;
   margin-bottom: 14px;
-  background: linear-gradient(135deg, #ffffff 40%, #dfc288 80%, #c5a059 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  text-transform: uppercase;
+  color: var(--accent-sky);
 }
 
-/* Outcome-Focused Sub-headline with distinct 0.75 opacity */
+/* Minimal 1-Sentence High-Impact Description */
 .hero-description {
   font-family: var(--font-body);
-  font-size: clamp(1.08rem, 1.35vw, 1.25rem);
-  color: var(--text-primary);
-  opacity: 0.75;
-  max-width: 560px;
-  line-height: 1.65;
+  font-size: clamp(0.95rem, 1.25vw, 1.12rem);
+  color: #e2e8f0;
+  opacity: 0.9;
+  max-width: 530px;
+  line-height: 1.6;
   margin-bottom: 18px;
   font-weight: 400;
 }
 
 /* Official Government PAN & Business Registration Verification Toggle */
 .hero-pan-verification-container {
-  margin-bottom: 26px;
+  margin-bottom: 22px;
   display: flex;
   align-items: center;
 }
@@ -284,63 +251,63 @@
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  padding: 8px 18px;
+  padding: 8px 16px;
   border-radius: 9999px;
-  background: rgba(197, 160, 89, 0.08);
-  border: 1px solid rgba(197, 160, 89, 0.35);
-  color: var(--accent-gold-light);
-  font-family: var(--font-display);
+  background: rgba(0, 56, 147, 0.16);
+  border: 1px solid rgba(56, 189, 248, 0.32);
+  color: #ffffff;
+  font-family: var(--font-body);
   font-size: 0.78rem;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: 0.02em;
   cursor: pointer;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4), inset 0 0 12px rgba(197, 160, 89, 0.06);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4), inset 0 0 12px rgba(56, 189, 248, 0.08);
   transition: all var(--transition-fast);
 }
 
 .pan-verification-trigger-btn:hover {
-  background: rgba(197, 160, 89, 0.18);
-  border-color: var(--accent-gold);
+  background: rgba(0, 86, 204, 0.3);
+  border-color: var(--accent-sky);
   color: #ffffff;
-  box-shadow: 0 6px 25px rgba(197, 160, 89, 0.35);
+  box-shadow: 0 6px 25px rgba(0, 86, 204, 0.4), 0 0 16px rgba(56, 189, 248, 0.3);
   transform: translateY(-1px);
 }
 
 .pan-btn-icon {
-  font-size: 1rem;
+  font-size: 0.95rem;
   line-height: 1;
 }
 
 .pan-btn-text {
   text-decoration: underline;
   text-underline-offset: 3px;
-  text-decoration-color: rgba(197, 160, 89, 0.45);
+  text-decoration-color: rgba(56, 189, 248, 0.45);
   transition: text-decoration-color var(--transition-fast);
 }
 
 .pan-verification-trigger-btn:hover .pan-btn-text {
-  text-decoration-color: var(--accent-gold);
+  text-decoration-color: var(--accent-sky);
 }
 
 .pan-btn-badge {
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  background: rgba(16, 185, 129, 0.14);
-  border: 1px solid rgba(16, 185, 129, 0.38);
-  color: #10b981;
+  background: rgba(56, 189, 248, 0.16);
+  border: 1px solid rgba(56, 189, 248, 0.45);
+  color: #38bdf8;
   font-family: var(--font-mono);
   font-size: 0.62rem;
-  font-weight: 800;
-  padding: 2px 8px;
+  font-weight: 700;
+  padding: 2px 7px;
   border-radius: 9999px;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.04em;
 }
 
 .pan-badge-check {
-  color: #10b981;
+  color: #38bdf8;
 }
 
 /* Interactive Feature Tags / Discipline Pills */
@@ -348,22 +315,22 @@
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 10px;
-  margin-bottom: 34px;
+  gap: 8px;
+  margin-bottom: 28px;
 }
 
 .discipline-pill-btn {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 8px 16px;
+  gap: 7px;
+  padding: 7px 15px;
   border-radius: 9999px;
-  background: rgba(14, 19, 26, 0.85);
-  border: 1px solid var(--border-glass);
+  background: rgba(12, 17, 24, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   font-family: var(--font-body);
   font-size: 0.78rem;
   font-weight: 500;
-  color: var(--text-secondary);
+  color: #cbd5e1;
   cursor: pointer;
   will-change: transform;
   transform: translateZ(0);
@@ -371,15 +338,15 @@
 }
 
 .discipline-pill-btn:hover {
-  background: rgba(197, 160, 89, 0.08);
-  border-color: rgba(197, 160, 89, 0.45);
-  color: #fff;
+  background: rgba(0, 56, 147, 0.25);
+  border-color: rgba(56, 189, 248, 0.5);
+  color: #ffffff;
   transform: translate3d(0, -2px, 0);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4), 0 0 15px rgba(197, 160, 89, 0.12);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4), 0 0 15px rgba(56, 189, 248, 0.2);
 }
 
 .discipline-icon {
-  color: var(--accent-gold);
+  color: var(--accent-sky);
   will-change: transform;
   transform: translateZ(0);
   transition: transform 0.25s ease, color 0.25s ease;
@@ -387,7 +354,7 @@
 
 .discipline-pill-btn:hover .discipline-icon {
   transform: scale(1.15) translateZ(0);
-  color: var(--accent-gold-light);
+  color: #ffffff;
 }
 
 /* Unified CTA Group */
@@ -395,12 +362,12 @@
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 16px;
-  margin-bottom: 30px;
+  gap: 14px;
+  margin-bottom: 26px;
 }
 
 .hero-btn-work {
-  padding: 16px 36px;
+  padding: 15px 34px;
 }
 
 .btn-play-icon {
@@ -414,7 +381,7 @@
 }
 
 .hero-btn-contact {
-  padding: 16px 32px;
+  padding: 15px 30px;
 }
 
 .btn-arrow {
@@ -431,11 +398,11 @@
 .hero-metrics-bar {
   display: flex;
   align-items: center;
-  gap: 28px;
-  padding-top: 24px;
-  border-top: 1px solid var(--border-subtle);
+  gap: 24px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
   width: 100%;
-  max-width: 560px;
+  max-width: 520px;
 }
 
 .metric-item {
@@ -444,26 +411,27 @@
 }
 
 .metric-num {
-  font-family: var(--font-display);
-  font-size: 1.6rem;
-  font-weight: 800;
-  color: var(--text-primary);
-  letter-spacing: -0.03em;
+  font-family: var(--font-anton);
+  font-size: 1.8rem;
+  font-weight: 400;
+  color: #ffffff;
+  letter-spacing: 0.02em;
   line-height: 1.1;
 }
 
 .metric-label {
   font-family: var(--font-body);
   font-size: 0.7rem;
-  color: var(--text-dim);
-  letter-spacing: 0.05em;
+  color: #93c5fd;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
+  font-weight: 600;
 }
 
 .metric-divider {
   width: 1px;
-  height: 32px;
-  background: var(--border-subtle);
+  height: 28px;
+  background: rgba(255, 255, 255, 0.12);
 }
 
 /* Right Column Visual Container */
@@ -478,11 +446,11 @@
   transform: translateZ(0);
 }
 
-/* Responsive Breakpoints */
+/* Responsive Breakpoints - Clean, uncluttered, no mess */
 @media (max-width: 1120px) {
   .hero-container {
     grid-template-columns: 1fr;
-    gap: 56px;
+    gap: 48px;
   }
 
   .hero-content {
@@ -490,14 +458,8 @@
     text-align: center;
   }
 
-  .hero-author-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
   .hero-description {
-    max-width: 620px;
+    max-width: 580px;
   }
 
   .hero-disciplines {
@@ -521,62 +483,57 @@
 
 @media (max-width: 640px) {
   .hero-section {
-    padding: 96px 0 36px;
+    padding: 86px 0 30px;
   }
 
   .hero-container {
     padding: 0 16px;
-    gap: 32px;
+    gap: 28px;
   }
 
   .hero-status-pill {
     padding: 5px 12px;
-    margin-bottom: 18px;
+    margin-bottom: 14px;
   }
 
   .status-text {
-    font-size: 0.62rem;
+    font-size: 0.64rem;
   }
 
-  .hero-author-name {
-    font-size: clamp(1.15rem, 5vw, 1.4rem);
-    text-align: center;
-  }
-
-  .hero-headline {
-    font-size: clamp(1.85rem, 7.5vw, 2.45rem);
-    line-height: 1.12;
-    margin-bottom: 16px;
+  .hero-brand-title {
+    font-size: clamp(2.4rem, 11.5vw, 3.8rem);
+    line-height: 0.98;
+    margin-bottom: 8px;
     text-align: center;
     word-break: break-word;
   }
 
-  .hero-subheadline {
-    font-size: 0.88rem;
+  .hero-tagline {
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
     text-align: center;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
   }
 
   .pan-verification-trigger-btn {
     width: 100%;
-    max-width: 380px;
+    max-width: 360px;
     padding: 7px 12px;
     font-size: 0.72rem;
     justify-content: center;
-    flex-wrap: wrap;
     text-align: center;
   }
 
   .hero-description {
-    font-size: 0.92rem;
-    line-height: 1.55;
-    margin-bottom: 20px;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 16px;
     text-align: center;
   }
 
   .hero-disciplines {
     gap: 6px;
-    margin-bottom: 22px;
+    margin-bottom: 20px;
     flex-wrap: wrap;
     justify-content: center;
     width: 100%;
@@ -589,40 +546,44 @@
 
   .hero-cta-group {
     width: 100%;
-    flex-direction: column;
-    gap: 12px;
-    margin-bottom: 24px;
+    flex-direction: row;
+    gap: 10px;
+    margin-bottom: 20px;
+    justify-content: center;
   }
 
   .hero-btn-work, .hero-btn-contact {
-    width: 100%;
+    flex: 1;
+    max-width: 180px;
+    padding: 12px 14px;
+    font-size: 0.75rem;
+    min-height: 44px;
     justify-content: center;
-    min-height: 48px;
   }
 
   .hero-metrics-bar {
     width: 100%;
+    max-width: 340px;
     gap: 8px;
-    justify-content: space-between;
-    padding-top: 18px;
+    justify-content: space-around;
+    padding-top: 14px;
   }
 
   .metric-item {
     align-items: center;
     text-align: center;
-    flex: 1;
   }
 
   .metric-num {
-    font-size: 1.25rem;
+    font-size: 1.4rem;
   }
 
   .metric-label {
-    font-size: 0.58rem;
+    font-size: 0.62rem;
   }
 
   .metric-divider {
-    height: 24px;
+    height: 22px;
   }
 
   /* Disable heavy background layer offsets on small screens */
@@ -639,12 +600,21 @@
     padding: 0 12px;
   }
 
-  .hero-headline {
-    font-size: 1.75rem;
+  .hero-brand-title {
+    font-size: 2.25rem;
+  }
+
+  .hero-cta-group {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero-btn-work, .hero-btn-contact {
+    width: 100%;
+    max-width: 100%;
   }
 
   .pan-btn-text {
     font-size: 0.68rem;
   }
 }
-

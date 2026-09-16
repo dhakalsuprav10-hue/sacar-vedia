@@ -32,8 +32,8 @@ const REELS_DATA = [
     category: 'VERTICAL REEL SPOT',
     title: 'Euporae Multi Collagen',
     caption: 'High-converting 9:16 vertical cinema spot ✨ Neural skin hydration & product macro VFX. Optimized for viral feeds.',
-    audio: 'sacar vedia • Original Audio',
-    username: 'sacar vedia',
+    audio: 'sakar vedia • Original Audio',
+    username: 'sakar vedia',
     likesCount: '1.2M',
     commentsCount: '45K',
     sharesCount: '110K',
@@ -48,7 +48,7 @@ const REELS_DATA = [
     title: 'Live Music Pub — Kathmandu',
     caption: 'Rainy night streets of Kathmandu 🌧️🎸 24fps anamorphic lighting, wet asphalt reflections & acoustic soul.',
     audio: 'Live Music Pub • Official Track',
-    username: 'sacar vedia',
+    username: 'sakar vedia',
     likesCount: '2.1M',
     commentsCount: '89K',
     sharesCount: '230K',
@@ -62,8 +62,8 @@ const REELS_DATA = [
     category: 'AI BRAND COMMERCIAL',
     title: 'Hello Smart Lighting Solutions',
     caption: 'Architectural crystal lighting & dynamic ambient illumination across Nepal 💡 100% Neural CGI render.',
-    audio: 'sacar vedia • Commercial Score',
-    username: 'sacar vedia',
+    audio: 'sakar vedia • Commercial Score',
+    username: 'sakar vedia',
     likesCount: '980K',
     commentsCount: '32K',
     sharesCount: '88K',
@@ -78,7 +78,7 @@ const REELS_DATA = [
     title: 'Sahayatri Auto Care Campaign',
     caption: 'Hyper-realistic AI brand spokesperson delivering fluent Nepali speech & workshop service promotion 🏍️',
     audio: 'Sahayatri Auto Care • Brand Audio',
-    username: 'sacar vedia',
+    username: 'sakar vedia',
     likesCount: '1.4M',
     commentsCount: '48K',
     sharesCount: '125K',
@@ -454,7 +454,7 @@ const InstagramReelsShowcase = React.forwardRef(function InstagramReelsShowcase(
                           <Bookmark 
                             size={22} 
                             stroke="#ffffff" 
-                            fill={isSaved ? '#c5a059' : 'none'} 
+                            fill={isSaved ? '#38bdf8' : 'none'} 
                           />
                         </div>
                         <span className="stat-count">{reel.savesCount}</span>

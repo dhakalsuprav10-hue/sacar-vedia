@@ -84,7 +84,7 @@
 }
 
 .title-champagne {
-  background: linear-gradient(135deg, #f5e8d0 10%, #dfc288 50%, #c5a059 90%);
+  background: linear-gradient(135deg, #ffffff 30%, #60a5fa 70%, #38bdf8 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   display: inline-block;
@@ -356,15 +356,15 @@
   gap: 6px;
   padding: 5px 12px;
   border-radius: 9999px;
-  background: linear-gradient(135deg, #dfc288 0%, #c5a059 100%);
-  border: none;
-  color: #080b0e;
+  background: linear-gradient(135deg, #0056cc 0%, #003893 100%);
+  border: 1px solid rgba(56, 189, 248, 0.4);
+  color: #ffffff;
   font-family: var(--font-display);
   font-size: 0.65rem;
   font-weight: 700;
   letter-spacing: 0.06em;
   cursor: pointer;
-  box-shadow: 0 4px 12px rgba(197, 160, 89, 0.35);
+  box-shadow: 0 4px 12px rgba(0, 56, 147, 0.4);
   transition: all 0.2s ease;
 }
 
@@ -470,15 +470,15 @@
   gap: 7px;
   padding: 11px 16px;
   border-radius: 9999px;
-  background: linear-gradient(135deg, #dfc288 0%, #c5a059 100%);
-  border: none;
-  color: #080b0e;
+  background: linear-gradient(135deg, #0056cc 0%, #003893 100%);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  color: #ffffff;
   font-family: var(--font-display);
   font-size: 0.74rem;
   font-weight: 700;
   letter-spacing: 0.06em;
   cursor: pointer;
-  box-shadow: 0 4px 14px rgba(197, 160, 89, 0.28);
+  box-shadow: 0 4px 14px rgba(0, 56, 147, 0.38);
   will-change: transform;
   transform: translateZ(0);
   transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease, filter 0.2s ease;
@@ -920,9 +920,9 @@
   top: 0;
   left: 0;
   height: 100%;
-  background: linear-gradient(90deg, #dfc288 0%, #c5a059 100%);
+  background: linear-gradient(90deg, #38bdf8 0%, #0056cc 100%);
   border-radius: 9999px;
-  box-shadow: 0 0 12px rgba(197, 160, 89, 0.7);
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.7);
   pointer-events: none;
 }
 
@@ -987,16 +987,16 @@
 }
 
 .theater-ctrl-btn.primary-ctrl {
-  background: var(--accent-gold);
+  background: var(--accent-blue-light);
   border-color: #fff;
-  color: #080b0e;
-  box-shadow: 0 0 16px rgba(197, 160, 89, 0.4);
+  color: #ffffff;
+  box-shadow: 0 0 16px rgba(0, 86, 204, 0.4);
 }
 
 .theater-ctrl-btn.primary-ctrl:hover {
-  background: #f5e8d0;
-  box-shadow: 0 0 24px rgba(197, 160, 89, 0.65);
-  color: #000;
+  background: #38bdf8;
+  box-shadow: 0 0 24px rgba(56, 189, 248, 0.65);
+  color: #070a0e;
 }
 
 .ctrl-tiny-text {

@@ -79,7 +79,7 @@ export default function Services({ onStartProject }) {
       <div className="services-container">
         {/* Section Header */}
         <div className="services-header">
-          <div className="services-eyebrow">
+          <div className="services-eyebrow reveal-text">
             <span className="eyebrow-pulse">
               <span className="pulse-ring" />
               <span className="pulse-core" />
@@ -89,7 +89,7 @@ export default function Services({ onStartProject }) {
           </div>
 
           {/* Section Main Heading with flawless Devanagari typography */}
-          <h2 className="services-main-headline">
+          <h2 className="services-main-headline reveal-text reveal-delay-1">
             Our Core Expertise
             <span className="services-separator"> | </span>
             <span className="services-headline-nepali" lang="ne">
@@ -97,8 +97,8 @@ export default function Services({ onStartProject }) {
             </span>
           </h2>
 
-          <p className="services-subtitle">
-            Engineered with state-of-the-art neural generation pipelines, hyper-realistic voice synthesis, and cinematic camera choreography tailored for maximum brand impact.
+          <p className="services-subtitle reveal-text reveal-delay-2">
+            Broadcast-ready AI cinema tailored for brand impact, high engagement, and viral reach.
           </p>
         </div>
 
@@ -120,7 +120,7 @@ export default function Services({ onStartProject }) {
                   <div className="service-icon-box">
                     <Icon size={24} className="service-card-icon" />
                   </div>
-                  <div className="service-card-meta">
+                  <div className="service-card-meta reveal-text">
                     <span className="service-number">{service.number}</span>
                     <span className="service-pill-tag">{service.subtitle}</span>
                   </div>
@@ -128,11 +128,11 @@ export default function Services({ onStartProject }) {
 
                 {/* Card Main Info */}
                 <div className="service-card-body">
-                  <h3 className="service-card-title">{service.title}</h3>
-                  <p className="service-card-description">{service.description}</p>
+                  <h3 className="service-card-title reveal-text reveal-delay-1">{service.title}</h3>
+                  <p className="service-card-description reveal-text reveal-delay-2">{service.description}</p>
 
                   {/* Bullet Deliverables */}
-                  <ul className="service-deliverables-list">
+                  <ul className="service-deliverables-list reveal-text reveal-delay-3">
                     {service.deliverables.map((item, dIdx) => (
                       <li key={dIdx} className="deliverable-item">
                         <Check size={13} className="deliverable-check" />
@@ -157,13 +157,13 @@ export default function Services({ onStartProject }) {
           <div className="services-cta-wrapper">
             <div className="services-cta-card">
               <div className="cta-text-group">
-                <span className="cta-eyebrow">HAVE A SPECIFIC PRODUCTION BRIEF?</span>
-                <h4 className="cta-headline">Turn your vision into high-impact visual reality today.</h4>
-                <span className="cta-rate-notice">Standard pricing starting from only <strong>Rs. 800 per video</strong>.</span>
+                <span className="cta-eyebrow reveal-text">HAVE A SPECIFIC PRODUCTION BRIEF?</span>
+                <h4 className="cta-headline reveal-text reveal-delay-1">Turn your vision into high-impact visual reality today.</h4>
+                <span className="cta-rate-notice reveal-text reveal-delay-2">Standard pricing starting from only <strong>Rs. 800 per video</strong>.</span>
               </div>
               <button 
                 type="button" 
-                className="btn-primary services-start-btn"
+                className="btn-primary services-start-btn reveal-text reveal-delay-3"
                 onClick={onStartProject}
                 id="services-start-project-btn"
               >

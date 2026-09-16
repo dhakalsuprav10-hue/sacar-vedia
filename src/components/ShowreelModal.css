@@ -825,8 +825,8 @@
 
 .timeline-fill-bar {
   height: 100%;
-  background: linear-gradient(90deg, #c5a059, #dfc288);
-  box-shadow: 0 0 10px rgba(197, 160, 89, 0.8);
+  background: linear-gradient(90deg, #0056cc, #38bdf8);
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.8);
   transition: width 0.08s linear;
 }
 

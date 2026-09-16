@@ -22,7 +22,7 @@
   width: 380px;
   height: 600px;
   margin: -300px 0 0 -190px;
-  background: radial-gradient(circle, rgba(197, 160, 89, 0.22) 0%, rgba(223, 194, 136, 0.08) 45%, transparent 72%);
+  background: radial-gradient(circle, rgba(0, 86, 204, 0.25) 0%, rgba(56, 189, 248, 0.08) 45%, transparent 72%);
   filter: blur(55px);
   pointer-events: none;
   z-index: 0;
@@ -47,7 +47,7 @@
   border: 2px solid rgba(255, 255, 255, 0.14);
   box-shadow: 
     0 35px 80px -15px rgba(0, 0, 0, 0.95),
-    0 0 50px rgba(197, 160, 89, 0.18),
+    0 0 50px rgba(56, 189, 248, 0.22),
     inset 0 0 0 1px rgba(255, 255, 255, 0.16),
     inset 0 0 24px rgba(0, 0, 0, 0.85);
   z-index: 1;
@@ -808,8 +808,8 @@
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background-color: var(--accent-gold);
-  box-shadow: 0 0 8px var(--accent-gold);
+  background-color: var(--accent-sky);
+  box-shadow: 0 0 8px var(--accent-sky);
   animation: dotPulse 2s infinite alternate;
 }
 
@@ -822,12 +822,12 @@
   font-family: var(--font-body);
   font-size: 0.72rem;
   font-weight: 600;
-  color: var(--text-dim);
+  color: #cbd5e1;
   letter-spacing: 0.05em;
 }
 
 .chip-highlight {
-  color: var(--accent-gold-light);
+  color: var(--accent-sky);
 }
 
 .chip-fullscreen-btn {
@@ -836,10 +836,10 @@
   gap: 5px;
   padding: 3px 10px;
   border-radius: 9999px;
-  background: rgba(197, 160, 89, 0.15);
-  border: 1px solid rgba(197, 160, 89, 0.35);
-  color: var(--accent-gold-light);
-  font-family: var(--font-display);
+  background: rgba(0, 56, 147, 0.2);
+  border: 1px solid rgba(56, 189, 248, 0.4);
+  color: var(--accent-sky);
+  font-family: var(--font-body);
   font-size: 0.65rem;
   font-weight: 700;
   cursor: pointer;
@@ -847,8 +847,9 @@
 }
 
 .chip-fullscreen-btn:hover {
-  background: var(--accent-gold);
-  color: #080b0e;
+  background: var(--accent-blue-light);
+  border-color: #38bdf8;
+  color: #ffffff;
   transform: translateY(-1px);
 }
 

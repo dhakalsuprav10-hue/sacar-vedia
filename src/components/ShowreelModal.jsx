@@ -494,7 +494,7 @@ export default function ShowreelModal({ isOpen, onClose, initialCategory = 'vert
               <Bookmark 
                 size={22} 
                 stroke="#ffffff" 
-                fill={isCurrentSaved ? '#c5a059' : 'none'} 
+                fill={isCurrentSaved ? '#38bdf8' : 'none'} 
               />
             </div>
             <span className="action-count">Save</span>
@@ -509,7 +509,7 @@ export default function ShowreelModal({ isOpen, onClose, initialCategory = 'vert
             title="Director Notes & Tools"
           >
             <div className="action-icon-circle">
-              <Sparkles size={20} stroke="#ffffff" fill={showNotes ? '#dfc288' : 'none'} />
+              <Sparkles size={20} stroke="#ffffff" fill={showNotes ? '#38bdf8' : 'none'} />
             </div>
             <span className="action-count">Notes</span>
           </button>

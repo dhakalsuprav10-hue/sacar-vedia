@@ -138,14 +138,14 @@
 }
 
 .headline-champagne {
-  background: linear-gradient(135deg, #ffffff 10%, #f5e8d0 40%, #dfc288 75%, #c5a059 100%);
+  background: linear-gradient(135deg, #ffffff 25%, #60a5fa 70%, #38bdf8 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   display: inline-block;
 }
 
 .headline-separator {
-  color: rgba(197, 160, 89, 0.4);
+  color: rgba(56, 189, 248, 0.4);
   font-weight: 300;
   margin: 0 8px;
   display: inline-block;
@@ -161,11 +161,11 @@
   display: inline-block;
   vertical-align: middle;
   padding: 4px 6px;
-  background: linear-gradient(135deg, #ffffff 0%, #f5e8d0 35%, #dfc288 70%, #f9a826 100%);
+  background: linear-gradient(135deg, #ffffff 20%, #60a5fa 70%, #38bdf8 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-shadow: none;
-  filter: drop-shadow(0 0 24px rgba(223, 194, 136, 0.35));
+  filter: drop-shadow(0 0 24px rgba(56, 189, 248, 0.35));
   text-rendering: optimizeLegibility;
   font-feature-settings: "kern" 1, "liga" 1, "clig" 1, "calt" 1;
   -webkit-font-smoothing: antialiased;
@@ -264,11 +264,11 @@
   font-weight: 900;
   letter-spacing: -0.04em;
   line-height: 1;
-  background: linear-gradient(135deg, #ffffff 15%, #f5e8d0 45%, #dfc288 80%, #c5a059 100%);
+  background: linear-gradient(135deg, #ffffff 25%, #60a5fa 70%, #38bdf8 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   display: inline-block;
-  text-shadow: 0 0 30px rgba(197, 160, 89, 0.2);
+  text-shadow: 0 0 30px rgba(0, 86, 204, 0.3);
 }
 
 .stat-meta {
@@ -322,9 +322,9 @@
   font-size: 0.68rem;
   font-weight: 700;
   letter-spacing: 0.12em;
-  color: var(--accent-gold-light);
-  background: rgba(197, 160, 89, 0.06);
-  border: 1px solid rgba(197, 160, 89, 0.2);
+  color: var(--accent-sky);
+  background: rgba(0, 56, 147, 0.15);
+  border: 1px solid rgba(56, 189, 248, 0.3);
   padding: 5px 14px;
   border-radius: 9999px;
   margin-bottom: 14px;
@@ -341,7 +341,7 @@
 }
 
 .title-champagne {
-  background: linear-gradient(135deg, #f5e8d0 10%, #dfc288 50%, #c5a059 90%);
+  background: linear-gradient(135deg, #ffffff 30%, #60a5fa 70%, #38bdf8 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   display: inline-block;
