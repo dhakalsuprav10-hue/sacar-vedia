@@ -16,6 +16,7 @@ export default function App() {
   const [reelModalOpen, setReelModalOpen] = useState(false);
   const [reelCategory, setReelCategory] = useState('film');
   const [projectModalOpen, setProjectModalOpen] = useState(false);
+  const [prefilledSubject, setPrefilledSubject] = useState('');
 
   const handleOpenReel = (category = 'film') => {
     setReelCategory(category);
@@ -34,6 +35,36 @@ export default function App() {
     setProjectModalOpen(false);
   };
 
+  // Smart Auto-Fill & Smooth Scroll when user clicks "Create similar to this one"
+  const handleCreateSimilar = (project) => {
+    const aspectLabel = 
+      project.aspectRatio === '9/16' 
+        ? '9:16 Vertical Reel' 
+        : project.category === 'MUSIC VIDEO' 
+          ? '16:9 Music Video' 
+          : '16:9 Commercial';
+
+    const briefText = `Inquiring for a similar style to: ${project.title} (${aspectLabel})`;
+    setPrefilledSubject(briefText);
+
+    // Smooth scroll down to contact / inquiry brief section
+    const contactEl = document.getElementById('contact');
+    if (contactEl) {
+      contactEl.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Auto-focus and pulse-highlight the subject input field
+    setTimeout(() => {
+      const inputEl = document.getElementById('form-client-subject');
+      if (inputEl) {
+        inputEl.focus();
+        inputEl.classList.remove('input-highlight-pulse');
+        void inputEl.offsetWidth; // Force CSS reflow to re-trigger animation
+        inputEl.classList.add('input-highlight-pulse');
+      }
+    }, 450);
+  };
+
   return (
     <div className="portfolio-app">
       {/* Luxury Cinematic Cursor & Smooth Following Glow */}
@@ -47,15 +78,17 @@ export default function App() {
 
       {/* Main Content */}
       <main>
+        {/* Page 1: Hero Section (Restored 2-column balanced layout with autoplaying phone mockup) */}
         <Hero 
           onOpenReel={handleOpenReel}
           onContactClick={handleOpenProjectModal}
           isModalOpen={reelModalOpen || projectModalOpen}
         />
 
-        {/* Real Commercial Video Showcase */}
+        {/* Real Commercial Video Showcase (Horizontal Scroll Showcase Container) */}
         <CommercialShowcase 
           onStartProject={handleOpenProjectModal}
+          onCreateSimilar={handleCreateSimilar}
         />
 
         {/* 2x2 Glassmorphic Services Section */}
@@ -71,6 +104,7 @@ export default function App() {
         {/* Visual Glassmorphic Contact Section */}
         <Contact 
           onStartProject={handleOpenProjectModal}
+          prefilledSubject={prefilledSubject}
         />
       </main>
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   Sparkles, 
   MessageSquare, 
@@ -70,18 +70,28 @@ const SOCIAL_LINKS = [
   },
 ];
 
-export default function Contact({ onStartProject }) {
+export default function Contact({ onStartProject, prefilledSubject = '' }) {
   const [copied, setCopied] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
-    subject: '',
+    subject: prefilledSubject || '',
     message: ''
   });
   const [openWhatsAppOnSubmit, setOpenWhatsAppOnSubmit] = useState(true);
   const [status, setStatus] = useState('idle'); // 'idle' | 'submitting' | 'success' | 'error'
   const [errorMessage, setErrorMessage] = useState('');
+
+  // Sync prefilled subject when user triggers 'Create similar to this one'
+  useEffect(() => {
+    if (prefilledSubject) {
+      setFormData(prev => ({
+        ...prev,
+        subject: prefilledSubject
+      }));
+    }
+  }, [prefilledSubject]);
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText(CONTACT_EMAIL).then(() => {

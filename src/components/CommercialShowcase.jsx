@@ -16,12 +16,13 @@ import {
   Monitor, 
   Sparkles,
   ChevronLeft,
-  ChevronRight
+  ChevronRight,
+  ArrowDown
 } from 'lucide-react';
 import { COMMERCIAL_PROJECTS } from '../data/commercialProjects';
 import './CommercialShowcase.css';
 
-export default function CommercialShowcase({ onStartProject }) {
+export default function CommercialShowcase({ onStartProject, onCreateSimilar }) {
   // State for inline card playback
   const [activeInlineId, setActiveInlineId] = useState(null);
   
@@ -38,6 +39,15 @@ export default function CommercialShowcase({ onStartProject }) {
   const inlineVideoRefs = useRef({});
   const fullscreenVideoRef = useRef(null);
   const theaterStageRef = useRef(null);
+  const trackRef = useRef(null);
+
+  // Smoothly scroll horizontal track
+  const handleScrollTrack = (direction) => {
+    if (trackRef.current) {
+      const scrollStep = window.innerWidth < 640 ? 320 : 520;
+      trackRef.current.scrollBy({ left: direction * scrollStep, behavior: 'smooth' });
+    }
+  };
 
   // Stop inline video playback
   const handleStopInlineVideo = (e, projectId) => {
@@ -220,39 +230,68 @@ export default function CommercialShowcase({ onStartProject }) {
       <div className="showcase-bg-grid" aria-hidden="true" />
       <div className="showcase-glow-radial" aria-hidden="true" />
 
-      <div className="commercial-container">
-        {/* Section Header */}
+      <div className="showcase-content-wrapper">
+        {/* Section Header & Horizontal Nav Controls */}
         <div className="showcase-section-header">
-          <div className="section-pill reveal-text">
-            <Sparkles size={12} className="pill-sparkle" />
-            <span>COMMERCIAL SHOWCASE</span>
+          <div className="showcase-header-left">
+            <div className="section-pill reveal-text">
+              <Sparkles size={12} className="pill-sparkle" />
+              <span>COMMERCIAL SHOWCASE</span>
+            </div>
+            <h2 className="showcase-title reveal-text reveal-delay-1">
+              COMMERCIAL <span className="title-champagne">SHOWCASE.</span>
+            </h2>
+            <p className="showcase-subtitle reveal-text reveal-delay-2">
+              High-impact commercial ads, AI cinema &amp; viral reels by Sakar Vedia.
+            </p>
           </div>
-          <h2 className="showcase-title reveal-text reveal-delay-1">
-            COMMERCIAL <span className="title-champagne">SHOWCASE.</span>
-          </h2>
-          <p className="showcase-subtitle reveal-text reveal-delay-2">
-            High-impact commercials, brand campaigns, and vertical reels by Sakar Vedia.
-          </p>
+
+          {/* Horizontal Track Navigation Controls */}
+          <div className="horizontal-nav-controls">
+            <span className="horizontal-swipe-hint">
+              <span>SWIPE / SCROLL HORIZONTALLY</span>
+              <span className="swipe-arrow-anim">→</span>
+            </span>
+            <div className="nav-arrow-buttons">
+              <button 
+                type="button" 
+                className="track-arrow-btn"
+                onClick={() => handleScrollTrack(-1)}
+                aria-label="Scroll left through showcase videos"
+                title="Previous Showcase Video"
+              >
+                <ChevronLeft size={18} />
+              </button>
+              <button 
+                type="button" 
+                className="track-arrow-btn"
+                onClick={() => handleScrollTrack(1)}
+                aria-label="Scroll right through showcase videos"
+                title="Next Showcase Video"
+              >
+                <ChevronRight size={18} />
+              </button>
+            </div>
+          </div>
         </div>
 
-        {/* Commercials Grid (2 Columns, strictly keeping natural aspect ratios) */}
-        <div className="commercials-grid">
-          {COMMERCIAL_PROJECTS.map((project) => {
+        {/* Horizontal Scrollable Container (flexbox, overflow-x: auto, scroll-snap-type: x mandatory) */}
+        <div className="commercials-horizontal-track" ref={trackRef}>
+          {COMMERCIAL_PROJECTS.map((project, index) => {
             const isPlayingInline = activeInlineId === project.id;
             const isVertical = project.aspectRatio === '9/16';
 
             return (
               <article 
                 key={project.id} 
-                className={`commercial-card ${isPlayingInline ? 'is-playing' : ''}`}
+                className={`commercial-horizontal-card ${isVertical ? 'card-vertical-layout' : 'card-widescreen-layout'} ${isPlayingInline ? 'is-playing' : ''}`}
                 id={`card-${project.id}`}
               >
                 {/* Media Container */}
                 <div 
-                  className="card-media-wrapper"
+                  className={`card-media-wrapper ${isVertical ? 'media-vertical' : 'media-widescreen'}`}
                   onClick={() => !isPlayingInline && handlePlayInlineVideo(project.id)}
                 >
-                  {/* HTML5 Video Element for inline preview */}
                   <video
                     ref={(el) => (inlineVideoRefs.current[project.id] = el)}
                     src={project.videoSrc}
@@ -262,7 +301,7 @@ export default function CommercialShowcase({ onStartProject }) {
                     preload="metadata"
                     className={`card-video-element ${isPlayingInline ? 'video-active' : 'video-hidden'}`}
                     style={{
-                      objectFit: isVertical ? 'contain' : 'cover',
+                      objectFit: isVertical ? 'cover' : 'cover',
                       backgroundColor: '#050709',
                     }}
                     onEnded={() => setActiveInlineId(null)}
@@ -280,7 +319,7 @@ export default function CommercialShowcase({ onStartProject }) {
                         width="640"
                         height="360"
                         style={{
-                          objectFit: isVertical ? 'contain' : 'cover',
+                          objectFit: isVertical ? 'cover' : 'cover',
                           backgroundColor: '#050709',
                         }}
                       />
@@ -359,31 +398,54 @@ export default function CommercialShowcase({ onStartProject }) {
                   )}
                 </div>
 
-                {/* Project Details */}
-                <div className="card-content">
-                  <div className="card-header-meta reveal-text">
-                    <span className="card-number">{project.number}</span>
+                {/* Card Content & Details */}
+                <div className="card-horizontal-info">
+                  <div className="card-header-meta">
+                    <span className="card-number">0{index + 1}</span>
                     <span className="card-meta-ratio">
                       {isVertical ? <Smartphone size={11} /> : <Monitor size={11} />}
                       {project.aspectRatioLabel || (isVertical ? '9:16 VERTICAL' : '16:9 WIDESCREEN')}
                     </span>
                   </div>
 
-                  <h3 className="card-title reveal-text reveal-delay-1">{project.title}</h3>
+                  <h3 className="card-title">{project.title}</h3>
+                  <span className="card-client-tag">{project.client}</span>
+                  <p className="card-description">{project.description}</p>
 
-                  <p className="card-description reveal-text reveal-delay-2">{project.description}</p>
+                  {/* =======================================================
+                      HIGH-FOCUS 'CREATE SIMILAR TO THIS ONE' HERO ACTION
+                      ======================================================= */}
+                  <button
+                    type="button"
+                    className="card-create-similar-hero-btn"
+                    onClick={() => {
+                      if (onCreateSimilar) {
+                        onCreateSimilar(project);
+                      } else if (onStartProject) {
+                        onStartProject({ title: project.title, category: project.category });
+                      }
+                    }}
+                    id={`btn-create-similar-${project.id}`}
+                    aria-label={`Create video project similar to ${project.title}`}
+                  >
+                    <div className="similar-hero-badge">
+                      <Sparkles size={11} className="badge-sparkle-icon" />
+                      <span>INSTANT BRIEF</span>
+                    </div>
+                    <span className="similar-hero-text">CREATE SIMILAR TO THIS ONE</span>
+                    <ArrowDown size={15} className="similar-hero-arrow" />
+                  </button>
 
-                  {/* Actions Group */}
-                  <div className="card-actions-group reveal-text reveal-delay-3">
+                  {/* Secondary Action Buttons */}
+                  <div className="card-secondary-actions">
                     <button 
                       type="button" 
                       className="card-action-primary"
                       onClick={() => handleOpenFullscreen(project, false)}
                       aria-label={`Watch full video of ${project.title} in original aspect ratio`}
                     >
-                      <Maximize2 size={15} className="btn-icon-left" />
+                      <Maximize2 size={14} className="btn-icon-left" />
                       <span>WATCH FULL VIDEO</span>
-                      <ArrowUpRight size={15} className="btn-arrow" />
                     </button>
 
                     <button
@@ -405,28 +467,15 @@ export default function CommercialShowcase({ onStartProject }) {
                       ) : (
                         <>
                           <Play size={13} />
-                          <span>INLINE PREVIEW</span>
+                          <span>PREVIEW</span>
                         </>
                       )}
                     </button>
                   </div>
 
-                  {/* Distinct "Create similar to this one" Button */}
-                  <button
-                    type="button"
-                    className="card-create-similar-btn reveal-text reveal-delay-3"
-                    onClick={() => onStartProject && onStartProject({ title: project.title, category: project.category })}
-                    id={`btn-similar-${project.id}`}
-                    aria-label={`Create a video similar to ${project.title}`}
-                  >
-                    <Sparkles size={14} className="similar-btn-icon" />
-                    <span>Create similar to this one</span>
-                    <ArrowUpRight size={14} className="similar-btn-arrow" />
-                  </button>
-
-                  {/* Tags List */}
-                  <div className="card-tags-list reveal-text reveal-delay-4">
-                    {project.tags.map((tag) => (
+                  {/* Tags */}
+                  <div className="card-tags-list">
+                    {project.tags.slice(0, 3).map((tag) => (
                       <span key={tag} className="card-mini-tag">{tag}</span>
                     ))}
                   </div>
@@ -434,29 +483,6 @@ export default function CommercialShowcase({ onStartProject }) {
               </article>
             );
           })}
-        </div>
-
-        {/* Bottom Section Call to Action */}
-        <div className="commercials-cta-banner">
-          <div className="banner-glow-orb" aria-hidden="true" />
-          <div className="banner-content">
-            <span className="banner-pill reveal-text">
-              <Sparkles size={12} /> BESPOKE COMMISSIONS
-            </span>
-            <h3 className="banner-headline reveal-text reveal-delay-1">HAVE A VIDEO PROJECT IN MIND?</h3>
-            <p className="banner-subtext reveal-text reveal-delay-2">
-              Direct commissions open for commercial spots, brand campaigns, and vertical reels.
-            </p>
-          </div>
-          <button 
-            type="button" 
-            className="btn-primary banner-cta-btn reveal-text reveal-delay-3"
-            onClick={onStartProject}
-            id="commercials-inquire-btn"
-          >
-            <span>START A PROJECT</span>
-            <ArrowUpRight size={16} />
-          </button>
         </div>
       </div>
 
@@ -710,7 +736,11 @@ export default function CommercialShowcase({ onStartProject }) {
                   className="theater-inquire-btn"
                   onClick={() => {
                     handleCloseFullscreen();
-                    if (onStartProject) onStartProject({ title: fullscreenProject.title, category: fullscreenProject.category });
+                    if (onCreateSimilar) {
+                      onCreateSimilar(fullscreenProject);
+                    } else if (onStartProject) {
+                      onStartProject({ title: fullscreenProject.title, category: fullscreenProject.category });
+                    }
                   }}
                 >
                   <Sparkles size={14} />
