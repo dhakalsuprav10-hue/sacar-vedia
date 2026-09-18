@@ -302,7 +302,7 @@ export default function CommercialShowcase({ onStartProject, onCreateSimilar }) 
                     className={`card-video-element ${isPlayingInline ? 'video-active' : 'video-hidden'}`}
                     style={{
                       objectFit: isVertical ? 'cover' : 'cover',
-                      backgroundColor: '#050709',
+                      backgroundColor: '#1C140E',
                     }}
                     onEnded={() => setActiveInlineId(null)}
                   />
@@ -320,7 +320,7 @@ export default function CommercialShowcase({ onStartProject, onCreateSimilar }) 
                         height="360"
                         style={{
                           objectFit: isVertical ? 'cover' : 'cover',
-                          backgroundColor: '#050709',
+                          backgroundColor: '#1C140E',
                         }}
                       />
                       <div className="card-gradient-vignette" />

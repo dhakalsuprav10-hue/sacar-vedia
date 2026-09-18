@@ -49,8 +49,8 @@
   border-radius: 50%;
   background: radial-gradient(
     circle,
-    rgba(197, 160, 89, 0.08) 0%,
-    rgba(197, 160, 89, 0.02) 40%,
+    rgba(212, 178, 140, 0.12) 0%,
+    rgba(212, 178, 140, 0.03) 40%,
     transparent 70%
   );
   transition: background 0.3s ease, opacity 0.3s ease;
@@ -60,8 +60,8 @@
 .active-interactive .cursor-glow-inner {
   background: radial-gradient(
     circle,
-    rgba(197, 160, 89, 0.13) 0%,
-    rgba(197, 160, 89, 0.04) 42%,
+    rgba(212, 178, 140, 0.2) 0%,
+    rgba(139, 111, 71, 0.08) 42%,
     transparent 70%
   );
 }
@@ -72,9 +72,9 @@
   height: 32px;
   margin: -16px 0 0 -16px;
   border-radius: 50%;
-  border: 1px solid rgba(197, 160, 89, 0.42);
-  background: rgba(197, 160, 89, 0.02);
-  box-shadow: 0 0 12px rgba(197, 160, 89, 0.15);
+  border: 1px solid rgba(139, 111, 71, 0.45);
+  background: rgba(212, 178, 140, 0.04);
+  box-shadow: 0 0 12px rgba(212, 178, 140, 0.2);
   pointer-events: none;
   transform: scale(1);
   transition: 
@@ -86,9 +86,9 @@
 
 .ring-expanded .cursor-ring-inner {
   transform: scale(1.45);
-  border-color: rgba(223, 194, 136, 0.7);
-  background-color: rgba(197, 160, 89, 0.08);
-  box-shadow: 0 0 18px rgba(197, 160, 89, 0.32);
+  border-color: rgba(90, 62, 43, 0.7);
+  background-color: rgba(212, 178, 140, 0.15);
+  box-shadow: 0 0 18px rgba(139, 111, 71, 0.3);
 }
 
 /* Center Anchor Dot: 1:1 instantaneous hardware-accelerated follow */
@@ -97,8 +97,8 @@
   height: 5px;
   margin: -2.5px 0 0 -2.5px;
   border-radius: 50%;
-  background-color: var(--accent-gold);
-  box-shadow: 0 0 8px rgba(197, 160, 89, 0.75);
+  background-color: #5A3E2B;
+  box-shadow: 0 0 8px rgba(90, 62, 43, 0.5);
   pointer-events: none;
   transform: scale(1);
   transition: opacity 0.2s ease, transform 0.2s ease;

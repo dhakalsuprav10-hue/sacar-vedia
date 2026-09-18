@@ -3,48 +3,57 @@
    =================================================================== */
 
 :root {
-  /* Color Palette - Deep Charcoal Canvas with Trustworthy Nepal Royal & Sky Blue */
-  --bg-dark: #070a0e;
-  --bg-surface: #0c1117;
-  --bg-surface-elevated: #111822;
-  --bg-card: rgba(12, 17, 23, 0.82);
-  --bg-card-hover: rgba(17, 24, 34, 0.92);
-  --bg-glass: rgba(10, 15, 22, 0.78);
+  /* Color Palette - Warm, Premium, Earthy Reference Palette */
+  --bg-dark: #F7E6C8;            /* Soft cream main light background */
+  --bg-surface: #EED7B5;         /* Warm beige surface */
+  --bg-surface-elevated: #E5CA9E;/* Elevated warm beige */
+  --bg-card: rgba(255, 250, 242, 0.88); /* Light cream glassmorphic card */
+  --bg-card-hover: rgba(255, 253, 248, 0.96);
+  --bg-glass: rgba(247, 230, 200, 0.82);
   
-  /* Accents - Nepal Flag Royal Blue (#003893) & Vibrant Sky Blue Highlights */
-  --accent-blue: #003893;
-  --accent-blue-light: #0056cc;
-  --accent-blue-deep: #00286b;
-  --accent-sky: #38bdf8;
-  --accent-sky-bright: #60a5fa;
-  --accent-sky-subtle: rgba(56, 189, 248, 0.08);
-  --accent-blue-glow: rgba(0, 56, 147, 0.24);
-  --accent-blue-subtle: rgba(0, 56, 147, 0.08);
+  /* Primary & Accent Tones */
+  --accent-primary: #5A3E2B;     /* Primary dark brown (buttons, active pills) */
+  --accent-secondary: #8B6F47;   /* Secondary warm brown (hover, highlights) */
+  --accent-tan: #D4B28C;         /* Warm beige/tan (accent areas, icons, borders) */
+  --accent-cream: #F7E6C8;       /* Soft cream background */
+  --accent-dark: #2B1E14;        /* Deep dark brown */
+  --accent-muted: #6B5B45;       /* Muted olive-brown */
 
-  /* Legacy & Compatibility Aliases mapped to Trustworthy Blue */
-  --accent-gold: #0056cc;
-  --accent-gold-light: #38bdf8;
-  --accent-gold-glow: rgba(0, 56, 147, 0.22);
-  --accent-gold-subtle: rgba(56, 189, 248, 0.07);
-  --accent-champagne: #93c5fd;
+  /* Aliases for System Compatibility */
+  --accent-blue: #5A3E2B;
+  --accent-blue-light: #8B6F47;
+  --accent-blue-deep: #2B1E14;
+  --accent-sky: #8B6F47;
+  --accent-sky-bright: #5A3E2B;
+  --accent-sky-subtle: rgba(212, 178, 140, 0.18);
+  --accent-blue-glow: rgba(90, 62, 43, 0.2);
+  --accent-blue-subtle: rgba(90, 62, 43, 0.08);
+
+  /* Legacy & Compatibility Aliases */
+  --accent-gold: #8B6F47;
+  --accent-gold-light: #5A3E2B;
+  --accent-gold-glow: rgba(90, 62, 43, 0.18);
+  --accent-gold-subtle: rgba(212, 178, 140, 0.14);
+  --accent-champagne: #5A3E2B;
   
   /* Undertone accents */
-  --accent-teal-subtle: rgba(0, 56, 147, 0.12);
-  --accent-slate: #16202c;
+  --accent-teal-subtle: rgba(139, 111, 71, 0.12);
+  --accent-slate: #EED7B5;
   
-  /* Text - Strict High-Contrast Crisp White & Vibrant Sky/Royal Blue */
-  --text-primary: #ffffff;       /* Pure crisp white */
-  --text-secondary: #93c5fd;     /* Soft ice blue */
-  --text-dim: #94a3b8;           /* Muted slate blue-gray */
-  --text-accent: #38bdf8;        /* Vivid electric sky blue */
-  --text-blue-deep: #2563eb;     /* Royal blue */
+  /* Text - Deep Dark Brown & Muted Olive-Brown Hierarchy */
+  --text-primary: #2B1E14;       /* Deep dark brown for main text & headings */
+  --text-secondary: #6B5B45;     /* Muted olive-brown for descriptions & subtitles */
+  --text-dim: #8C775D;           /* Muted secondary labels */
+  --text-accent: #5A3E2B;        /* Primary brown accent text */
+  --text-blue-deep: #2B1E14;     /* Deep dark brown */
+  --text-on-dark: #FAF4EC;       /* Crisp cream/white on dark brown buttons */
   
   /* Borders */
-  --border-subtle: rgba(255, 255, 255, 0.08);
-  --border-glass: rgba(255, 255, 255, 0.14);
-  --border-gold: rgba(0, 86, 204, 0.4);
-  --border-glow: rgba(56, 189, 248, 0.4);
-  --border-blue: rgba(0, 86, 204, 0.45);
+  --border-subtle: rgba(90, 62, 43, 0.12);
+  --border-glass: rgba(90, 62, 43, 0.18);
+  --border-gold: rgba(212, 178, 140, 0.65);
+  --border-glow: rgba(139, 111, 71, 0.35);
+  --border-blue: rgba(90, 62, 43, 0.28);
   
   /* Typography - Anton for uppercase display title, simple modern Inter for all other texts */
   --font-anton: 'Anton', 'Impact', sans-serif;
@@ -59,8 +68,8 @@
   --transition-slow: 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 
   /* Elevation & Shadows */
-  --shadow-card: 0 20px 45px -15px rgba(0, 0, 0, 0.75), 0 0 0 1px rgba(255, 255, 255, 0.06);
-  --shadow-glow: 0 0 35px -5px rgba(0, 56, 147, 0.35);
+  --shadow-card: 0 16px 38px -12px rgba(43, 30, 20, 0.1), 0 0 0 1px rgba(90, 62, 43, 0.08);
+  --shadow-glow: 0 0 35px -5px rgba(90, 62, 43, 0.14);
 }
 
 *, *::before, *::after {
@@ -71,7 +80,7 @@
 
 html {
   scroll-behavior: smooth;
-  color-scheme: dark;
+  color-scheme: light;
   background-color: var(--bg-dark);
 }
 
@@ -98,7 +107,7 @@ body {
   -webkit-backface-visibility: hidden;
 }
 
-/* Atmospheric Background Canvas & Subtle Blue Glows */
+/* Atmospheric Background Canvas & Warm Earthy Glows */
 body::before {
   content: "";
   position: fixed;
@@ -106,7 +115,7 @@ body::before {
   right: -80px;
   width: 780px;
   height: 780px;
-  background: radial-gradient(circle, rgba(0, 56, 147, 0.12) 0%, rgba(56, 189, 248, 0.04) 40%, transparent 68%);
+  background: radial-gradient(circle, rgba(212, 178, 140, 0.22) 0%, rgba(139, 111, 71, 0.08) 42%, transparent 68%);
   pointer-events: none;
   z-index: 0;
   contain: strict;
@@ -122,7 +131,7 @@ body::after {
   left: -80px;
   width: 720px;
   height: 720px;
-  background: radial-gradient(circle, rgba(0, 86, 204, 0.09) 0%, rgba(0, 56, 147, 0.04) 40%, transparent 68%);
+  background: radial-gradient(circle, rgba(212, 178, 140, 0.18) 0%, rgba(90, 62, 43, 0.06) 40%, transparent 68%);
   pointer-events: none;
   z-index: 0;
   contain: strict;
@@ -151,14 +160,14 @@ body::after {
   height: 100%;
   pointer-events: none;
   z-index: 1;
-  opacity: 0.025;
+  opacity: 0.02;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }
 
 /* Selection Color */
 ::selection {
-  background: rgba(0, 86, 204, 0.45);
-  color: #fff;
+  background: #D4B28C;
+  color: #2B1E14;
 }
 
 /* Typography Helpers */
@@ -170,22 +179,22 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: -0.025em;
 }
 
-/* Blue & White Text Utilities */
+/* Earthy Gradient & Text Utilities */
 .text-gradient-blue,
 .headline-champagne,
 .title-champagne {
-  background: linear-gradient(135deg, #ffffff 35%, #60a5fa 75%, #38bdf8 100%);
+  background: linear-gradient(135deg, #2B1E14 25%, #5A3E2B 70%, #8B6F47 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   display: inline-block;
 }
 
 .text-blue-accent {
-  color: var(--accent-sky);
+  color: var(--accent-secondary);
 }
 
 .text-white {
-  color: #ffffff;
+  color: var(--text-primary);
 }
 
 .text-muted-blue {
@@ -211,8 +220,8 @@ button {
   align-items: center;
   justify-content: center;
   gap: 10px;
-  background: linear-gradient(135deg, #0056cc 0%, #003893 100%);
-  color: #ffffff;
+  background: linear-gradient(135deg, #5A3E2B 0%, #442E20 100%);
+  color: #FAF4EC;
   font-family: var(--font-display);
   font-weight: 700;
   font-size: 0.84rem;
@@ -220,7 +229,8 @@ button {
   text-transform: uppercase;
   padding: 15px 32px;
   border-radius: 9999px;
-  box-shadow: 0 4px 22px rgba(0, 56, 147, 0.32), 0 0 0 1px rgba(255, 255, 255, 0.16) inset;
+  border: 1px solid rgba(212, 178, 140, 0.35);
+  box-shadow: 0 4px 20px rgba(90, 62, 43, 0.28), 0 0 0 1px rgba(255, 255, 255, 0.12) inset;
   transition: transform var(--transition-smooth), box-shadow var(--transition-smooth), background var(--transition-smooth);
   position: relative;
   overflow: hidden;
@@ -235,7 +245,7 @@ button {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.22), transparent);
   transform: translate3d(-100%, 0, 0);
   transition: transform 0.75s ease;
   pointer-events: none;
@@ -244,8 +254,8 @@ button {
 
 .btn-primary:hover {
   transform: translate3d(0, -2px, 0);
-  box-shadow: 0 8px 30px rgba(0, 86, 204, 0.45), 0 0 0 1px rgba(255, 255, 255, 0.3) inset;
-  background: linear-gradient(135deg, #0066ee 0%, #0044aa 100%);
+  box-shadow: 0 8px 28px rgba(90, 62, 43, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.25) inset;
+  background: linear-gradient(135deg, #8B6F47 0%, #6E5434 100%);
 }
 
 .btn-primary:hover::before {
@@ -261,7 +271,7 @@ button {
   align-items: center;
   justify-content: center;
   gap: 10px;
-  background: rgba(255, 255, 255, 0.035);
+  background: rgba(255, 250, 242, 0.7);
   color: var(--text-primary);
   font-family: var(--font-display);
   font-weight: 600;
@@ -270,7 +280,7 @@ button {
   text-transform: uppercase;
   padding: 15px 32px;
   border-radius: 9999px;
-  border: 1px solid var(--border-glass);
+  border: 1px solid var(--border-gold);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   transition: transform var(--transition-smooth), border-color var(--transition-smooth), background-color var(--transition-smooth), box-shadow var(--transition-smooth);
@@ -279,11 +289,11 @@ button {
 }
 
 .btn-secondary:hover {
-  background: rgba(0, 56, 147, 0.12);
-  border-color: rgba(56, 189, 248, 0.45);
-  color: #fff;
+  background: rgba(212, 178, 140, 0.22);
+  border-color: #8B6F47;
+  color: #2B1E14;
   transform: translate3d(0, -2px, 0);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.45);
+  box-shadow: 0 8px 20px rgba(43, 30, 20, 0.12);
 }
 
 .btn-secondary:active {
@@ -300,12 +310,12 @@ button {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.12);
+  background: #D4B28C;
   border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--accent-blue-light);
+  background: #8B6F47;
 }
 
 /* Mobile Global Safety & Responsive Adaptations */

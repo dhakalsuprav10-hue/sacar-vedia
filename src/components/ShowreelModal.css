@@ -7,7 +7,7 @@
   inset: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(2, 4, 7, 0.95);
+  background: rgba(30, 20, 14, 0.94);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   display: flex;
@@ -35,10 +35,10 @@
   border-radius: 36px;
   overflow: hidden;
   background: #000000;
-  border: 2px solid rgba(255, 255, 255, 0.16);
+  border: 2px solid rgba(212, 178, 140, 0.4);
   box-shadow: 
     0 25px 60px -10px rgba(0, 0, 0, 0.9), 
-    0 0 35px rgba(197, 160, 89, 0.14),
+    0 0 35px rgba(212, 178, 140, 0.25),
     inset 0 0 0 1px rgba(255, 255, 255, 0.12);
   display: flex;
   flex-direction: column;
@@ -825,8 +825,8 @@
 
 .timeline-fill-bar {
   height: 100%;
-  background: linear-gradient(90deg, #0056cc, #38bdf8);
-  box-shadow: 0 0 10px rgba(56, 189, 248, 0.8);
+  background: linear-gradient(90deg, #5A3E2B, #8B6F47, #D4B28C);
+  box-shadow: 0 0 10px rgba(212, 178, 140, 0.8);
   transition: width 0.08s linear;
 }
 
